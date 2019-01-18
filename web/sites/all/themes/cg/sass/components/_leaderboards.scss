@@ -1,0 +1,30 @@
+table#leaderboards {
+  
+  font-size:15px;
+  text-align:center;
+  border:none;
+  tr.even,tr.odd {
+    border-bottom:1px solid #3F3F3F;
+    background:transparent;
+  }
+  tr.even:last-of-type,
+  tr.odd:last-of-type {
+    border-bottom:none;
+  }
+  tr.odd td,
+  tr.even td {
+    background:transparent;
+  }
+  thead th, th, th.active {
+    background: transparent;
+    border-bottom: 1px solid #3F3F3F;
+    color: #FFFFFF;
+    font-weight: normal;
+    text-transform: uppercase;
+    text-align:center;
+  }
+  .progress-bar {
+    line-height:18px;
+    font-size:14px;
+  }
+}

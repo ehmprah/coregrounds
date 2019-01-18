@@ -1,0 +1,24 @@
+// TODO add responsive solution like a <select>, dropdown inactives?
+
+.tabs {
+  margin-bottom: 1em;
+  button {
+    display: block;
+    width: 100%;
+  }
+}
+
+@media (min-width: 960px) {
+  .tabs {
+    display: flex;
+    button {
+      margin: 0 1%;
+      &:first-child {
+        margin-left: 0;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

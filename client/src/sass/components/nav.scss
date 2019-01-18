@@ -1,0 +1,179 @@
+#nav {
+  z-index:5;
+  position:absolute;
+  right:0px;
+  top: 0px;
+  font-size:15px;
+  padding-left: 40px;
+
+  transform: translateX(100%);
+  transition: all 0.4s;
+  &.active {
+    transform: translateX(0);
+  }
+
+  a svg,
+  button svg {
+    width: 36px;
+    * {
+      fill: $almostwhite;
+      fill-opacity:0.7;
+      transition: fill-opacity .2s;
+    }
+  }
+
+  span {
+    user-select: none;
+    &:hover {
+      cursor: inherit;
+    }
+  }
+  a span:hover {
+    cursor: inherit;
+  }
+
+  .credits {
+    padding-right: 60px;
+    z-index: 4;
+    width: 320px;
+    background: #000;
+    height: 60px;
+    &::before{
+      content: '';
+      width: 0;
+      height: 0;
+      border-top: 60px solid black;
+      border-left: 40px solid transparent;
+      position: absolute;
+      right: 320px;
+      top: 0;
+    }
+    .coins,
+    .bonus {
+      vertical-align: top;
+      float:left;
+      width: 100px;
+      .icon {
+        float:left;
+        width: 24px;
+        height: 24px;
+        margin: 18px 8px 8px 8px
+      }
+      .value {
+        float:left;
+        line-height:40px;
+        margin:10px 0;
+        vertical-align: top;
+        width:60px;
+        text-align: center;
+      }
+    }
+    .coins svg * {
+      fill: change_color(gold, $lightness: 35);
+    }
+  }
+
+  button.toggle {
+    float:right;
+    border:none;
+    z-index: 2;
+    width:60px;
+    height:60px;
+    padding: 0;
+    transition: all 0.2s;
+    background: none;
+    svg {
+      width:32px;
+      margin: 14px;
+    }
+    &:hover {
+      svg * {
+        fill-opacity: 1;
+      }
+    }
+  }
+
+  .subnavigation {
+    width: 320px;
+    position:absolute;
+    top:60px;
+    right:0;
+    padding:10px;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s;
+    padding-bottom:110px;
+    a {
+      border: none;
+      font-size: 14px;
+      width: 100px;
+      text-align: center;
+      display:block;
+      float:left;
+      line-height: 24px;
+      margin:15px 0;
+      text-align: center;
+      color: $offwhite;
+    }
+    a:active {
+      transform: translate(0, 2px);
+    }
+    a:hover {
+      text-shadow: none;
+      color:white;
+      svg * {
+        fill-opacity: 1;
+      }
+    }
+    a:focus {
+      outline:none;
+    }
+
+    .bonus-details {
+      position:absolute;
+      right:0;
+      left:0;
+      bottom:0;
+      padding:10px;
+      div {
+        width:140px;
+        height:40px;
+        float:left;
+      }
+      div:nth-child(even) {
+        width:160px;
+      }
+      svg {
+        width: 24px;
+        margin: 8px;
+      }
+      span {
+        line-height: 40px;
+        display: inline-block;
+        vertical-align: top;
+      }
+    }
+    &.active {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  .notifications {
+    width: 320px;
+    position:absolute;
+    top:60px;
+    right:0;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s;
+    &.active {
+      visibility: visible;
+      opacity: 1;
+    }
+    .notification {
+      padding:10px;
+    }
+  }
+
+}

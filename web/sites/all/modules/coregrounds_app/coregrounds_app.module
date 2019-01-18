@@ -1,0 +1,659 @@
+<?php
+
+/**
+ * @file
+ * Coregrounds main module file.
+ */
+
+define('COREGROUNDS_APP_KEY', '...');
+define('STEAM_API_KEY', '...');
+
+/**
+ * Implements hook_menu().
+ */
+function coregrounds_app_menu() {
+
+  $items['api/config'] = array(
+    'page callback' => 'coregrounds_api_deliver_config',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/api.config.inc',
+  );
+
+  $items['api/match'] = array(
+    'page callback' => 'coregrounds_api_match',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/api.match.inc',
+  );
+
+  $items['api/loadplayer'] = array(
+    'page callback' => 'coregrounds_api_load_player',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/api.player.inc',
+  );
+
+  $items['app/home'] = array(
+    'page callback' => 'coregrounds_app_home',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/app.content.inc',
+  );
+
+  $items['app/training-grounds'] = array(
+    'page callback' => 'coregrounds_app_training_grounds',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/app.content.inc',
+  );
+
+  $items['app/dev'] = array(
+    'page callback' => 'coregrounds_app_dev',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/app.content.inc',
+  );
+
+  $items['app/scoregrounds'] = array(
+    'page callback' => 'coregrounds_app_scoregrounds',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/app.scoregrounds.inc',
+  );
+
+  $items['app/profile/%'] = array(
+    'page callback' => 'coregrounds_app_player_profile',
+    'page arguments' => array(2),
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/app.scoregrounds.inc',
+  );
+
+  $items['app/achievements/%'] = array(
+    'page callback' => 'coregrounds_app_achievements',
+    'page arguments' => array(2),
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/app.achievements.inc',
+  );
+
+  $items['app/matches/%'] = array(
+    'page callback' => 'coregrounds_app_match_history',
+    'page arguments' => array(2),
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/app.matches.inc',
+  );
+
+  $items['app/match/%'] = array(
+    'page callback' => 'coregrounds_app_match',
+    'page arguments' => array(2),
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/app.matches.inc',
+  );
+
+  $items['app/check/name'] = array(
+    'page callback' => 'coregrounds_app_check_name',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+
+  $items['app/create'] = array(
+    'page callback' => 'coregrounds_app_create',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/app.session.inc',
+  );
+
+  $items['app/auth/login'] = array(
+    'page callback' => 'coregrounds_app_account_login',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/app.auth.inc',
+  );
+
+  $items['app/auth/relog'] = array(
+    'page callback' => 'coregrounds_app_account_relog',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/app.auth.inc',
+  );
+
+  $items['app/auth/create'] = array(
+    'page callback' => 'coregrounds_app_account_create',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/app.auth.inc',
+  );
+
+  $items['app/steam/auth'] = array(
+    'page callback' => 'coregrounds_app_steam_auth',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/app.steam.inc',
+  );
+
+  $items['app/steam/link'] = array(
+    'page callback' => 'coregrounds_app_steam_link',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/app.steam.inc',
+  );
+
+  $items['app/steam/init'] = array(
+    'page callback' => 'coregrounds_app_steam_init',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/app.steam.inc',
+  );
+
+  $items['app/steam/store/userinfo'] = array(
+    'page callback' => 'coregrounds_app_steam_store_get_user_info',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/app.steam.store.inc',
+  );
+
+  $items['app/steam/store/init'] = array(
+    'page callback' => 'coregrounds_app_steam_store_transaction_init',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/app.steam.store.inc',
+  );
+
+  $items['app/steam/store/finalize'] = array(
+    'page callback' => 'coregrounds_app_steam_store_transaction_finalize',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/app.steam.store.inc',
+  );
+
+  $items['app/steam/store/finalize/%'] = array(
+    'page callback' => 'coregrounds_app_steam_store_transaction_finalize_web',
+    'page arguments' => array(4),
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/app.steam.store.inc',
+  );
+
+  $items['app/steam/store/cancel'] = array(
+    'page callback' => 'coregrounds_app_steam_store_transaction_cancel',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/app.steam.store.inc',
+  );
+
+  $items['app/unlock'] = array(
+    'page callback' => 'coregrounds_app_unlock_item',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/app.unlock.inc',
+  );
+
+  $items['app/buy'] = array(
+    'page callback' => 'coregrounds_app_buy_item',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/app.unlock.inc',
+  );
+
+  $items['app/unlock-page'] = array(
+    'page callback' => 'coregrounds_app_unlock_page',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/app.unlock.inc',
+  );
+
+  $items['app/reload'] = array(
+    'page callback' => 'coregrounds_app_reload_player',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/app.account.inc',
+  );
+
+  $items['app/complete-tutorial'] = array(
+    'page callback' => 'coregrounds_app_complete_tutorial',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/app.account.inc',
+  );
+
+  $items['app/agree-tos'] = array(
+    'page callback' => 'coregrounds_app_tos_agreement',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/app.account.inc',
+  );
+
+  $items['app/customize'] = array(
+    'page callback' => 'coregrounds_app_customize',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/app.account.inc',
+  );
+
+  $items['app/redeem'] = array(
+    'page callback' => 'coregrounds_app_redeem',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/app.account.inc',
+  );
+
+  $items['app/upgrade'] = array(
+    'page callback' => 'coregrounds_app_account_upgrade',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/app.account.inc',
+  );
+
+  $items['app/subscribe'] = array(
+    'page callback' => 'coregrounds_app_account_subscribe',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/app.account.inc',
+  );
+
+  $items['app/set-region'] = array(
+    'page callback' => 'coregrounds_app_save_region',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/app.account.inc',
+  );
+
+  $items['app/save-modifications'] = array(
+    'page callback' => 'coregrounds_app_save_modifications',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/app.account.inc',
+  );
+
+  return $items;
+}
+
+/**
+ * App API callback checking if a username is taken.
+ */
+function coregrounds_app_check_name() {
+  $output['success'] = 1;
+  if (user_load_by_name($_POST['name'])) {
+    $output['success'] = 0;
+    $output['status'] = 'TAKEN';
+  }
+  if ($error = user_validate_name($_POST['name'])) {
+    $output['success'] = 0;
+    $output['status'] = 'INVALID';
+    $output['message'] = $error;
+  }
+  module_load_include('inc', 'coregrounds_app', 'includes/util.profanity');
+  if (contains_profanity($_POST['name'])) {
+    $output['success'] = 0;
+    $output['status'] = 'INVALID';
+    $output['message'] = 'No profanity please.';
+  }
+  coregrounds_app_api_response($output);
+}
+
+/**
+ * Helper function querying for values in the config
+ */
+function configQuery($types, $key = false, $value = false) {
+  $cfg = coregrounds_config();
+
+  // Convert to array in case we only search one group
+  if (!is_array($types)) $types = [$types];
+
+  foreach ($types as $type) {
+    if (isset($cfg[$type])) {
+      // If we don't search by key / value, just return the whole set
+      if ($key === false && $value === false) {
+        return $cfg[$type];
+      }
+      // If we have both, we return the whole object
+      if ($key !== false && $value !== false) {
+        foreach ($cfg[$type] as $item) {
+          if ($item[$key] == $value) {
+            return $item;
+          }
+        }
+      }
+    }
+  }
+
+  return false;
+}
+
+/**
+ * Helper function getting the settings file
+ */
+function coregrounds_load_config_file() {
+  $file = &drupal_static(__FUNCTION__);
+  if (!isset($file)) {
+    $file = file_get_contents(drupal_get_path('module', 'coregrounds_app') . '/server_config.json');
+  }
+  return $file;
+}
+
+/**
+ * Helper function getting the parsed config file
+ */
+function coregrounds_config() {
+  $config = &drupal_static(__FUNCTION__);
+  if (!isset($config)) {
+    $config = json_decode(coregrounds_load_config_file(), true);
+  }
+  return $config;
+}
+
+/**
+ * Helper function to validate an app api request's session token
+ */
+function coregrounds_app_validate_session() {
+  $query = "SELECT uid FROM coregrounds_app_session WHERE token = :token";
+  if ($u = db_query($query, array(':token' => $_POST['token']))->fetchField()) {
+    return $u;
+  }
+  return false;
+}
+
+/**
+ * Helper function to validate an unlock
+ */
+function coregrounds_app_validate_unlock($uid, $id) {
+
+  $q = "SELECT COUNT(1) FROM coregrounds_unlocks
+        WHERE uid = :uid AND unlid = :id";
+
+  if (db_query($q, array(
+    ':uid' => $uid,
+    ':id' => $id
+  ))->fetchField()) {
+    return true;
+  }
+  return false;
+}
+
+/**
+ * Send an API response
+ */
+function coregrounds_app_build_player_data($uid) {
+
+  // TODO remove the hook_user_load logic and query for the stuff here, where we need it!
+  // TODO after we've done that, we can remove the reset flag here on the user_load!
+
+  // Load account
+  $account = user_load($uid, TRUE);
+
+  // Load modifications
+  $pages = array();
+  $q = "SELECT * FROM {coregrounds_modifications} WHERE uid = :uid";
+  foreach (db_query($q, array(':uid' => $uid)) as $record) {
+    $pages[$record->pid] = array(
+      'pid' => intval($record->pid),
+      'title' => check_plain($record->title),
+      'mods' => $record->mods ? json_decode($record->mods, 1) : array(),
+    );
+  }
+
+  // Build player data
+  $player['uid'] = intval($account->uid);
+  $player['name'] = check_plain($account->name);
+  $player['mail'] = $account->mail;
+  $player['validated'] = ($account->login > 0);
+  $player['newsletter'] = intval($account->field_newsletter['und'][0]['value']);
+  $player['icon'] = intval($account->data->emblem);
+  $player['color'] = intval($account->data->color);
+  $player['background'] = intval($account->data->background);
+  $player['achievementProgress'] = floatval($account->data->achievement_progress);
+  $player['privateMatches'] = intval($account->data->pmatches);
+  $player['winStreak'] = intval($account->data->pvp_winstreak);
+  $player['tutorial'] = intval($account->data->tutorial);
+  $player['unlocks'] = $account->unlocks;
+  $player['region'] = $account->data->region;
+  $player['crossregion'] = intval($account->data->crossregion);
+
+  $player['level']['current'] = intval($account->data->lvl);
+  $player['level']['progress'] = floatval($account->data->level_progress);
+
+  $player['currency']['current'] = intval($account->data->pc_current);
+  $player['currency']['earned'] = intval($account->data->pc_bought);
+
+  $player['credits']['current'] = intval($account->data->coins);
+  $player['credits']['earned'] = intval($account->data->coins_earned);
+
+  $player['bonus']['wins'] = intval($account->data->boost_wins);
+  $player['bonus']['time'] = intval($account->data->boost_until);
+  $player['bonus']['daily'] = intval($account->data->daily_bonus);
+  $player['bonus']['permanent'] = intval($account->data->permaboost);
+  if ($account->field_newsletter['und'][0]['value']) {
+    $player['bonus']['permanent'] += 50;
+  }
+
+  foreach (['season', 'previous'] as $key) {
+    foreach(['bot', 'casual', 'ranked'] as $type) {
+      $player[$key][$type]['wins'] = intval($account->{$key}->{$type . '_wins'});
+      $player[$key][$type]['games'] = intval($account->{$key}->{$type . '_games'});
+      $player[$key][$type]['rank'] = intval($account->{$key}->{$type . '_rank'});
+    }
+  }
+
+  $player['skins'] = $account->data->skins
+    ? json_decode($account->data->skins)
+    : array();
+
+  $player['modifications']['last'] = intval($account->data->last_used_page);
+  $player['modifications']['pages'] = $pages;
+
+  // Check for TOS agreement
+  if ($account->data->tos_accepted != variable_get('coregrounds_tos_version', '0.0.0')) {
+    $node = node_load(3);
+    $player['tos_updated'] = $node->body['und'][0]['value'];
+  }
+
+  return $player;
+}
+
+/**
+ * Send an API response.
+ */
+function coregrounds_app_api_response($response) {
+  // Set headers.
+  drupal_add_http_header('Access-Control-Allow-Origin', "*");
+  drupal_add_http_header('Access-Control-Allow-Methods', 'GET,POST');
+  // Send response.
+  drupal_json_output(array_filter($response));
+  drupal_exit();
+}
+
+/**
+ * Implementation of hook_user_insert().
+ */
+function coregrounds_app_user_insert(&$edit, $account) {
+  db_insert('coregrounds_players')->fields(array(
+    'uid' => $account->uid,
+    'color' => 2400,
+    'emblem' => 2000,
+  ))->execute();
+  db_insert('coregrounds_seasons')->fields(array(
+    'uid' => $account->uid,
+    'season' => variable_get('coregrounds_current_season'),
+  ))->execute();
+  db_insert('coregrounds_seasons')->fields(array(
+    'uid' => $account->uid,
+    'season' => 'TOTAL',
+  ))->execute();
+  db_insert('coregrounds_modifications')->fields(array(
+    'uid' => $account->uid,
+    'title' => 'Untitled page',
+  ))->execute();
+  foreach([2000, 2100, 2201, 2202, 2218, 2400] as $id) {
+    db_insert('coregrounds_unlocks')->fields(array(
+      'uid' => $account->uid,
+      'unlid' => $id,
+    ))->execute();
+  }
+}
+
+/**
+ * Implementation of hook_user_delete().
+ */
+function coregrounds_app_user_delete($account) {
+  db_delete('coregrounds_modifications')->condition('uid', $account->uid)->execute();
+  db_delete('coregrounds_players')->condition('uid', $account->uid)->execute();
+  db_delete('coregrounds_unlocks')->condition('uid', $account->uid)->execute();
+  db_delete('coregrounds_seasons')->condition('uid', $account->uid)->execute();
+}
+
+/**
+ * Update achievements for a user.
+ */
+function coregrounds_update_achievements(
+  $account,
+  $add,
+  $aids = array(),
+  $reset = FALSE,
+  $save_progress = TRUE
+) {
+  // Load the achievements for this user if not supplied yet.
+  if (!isset($account->achievements)) {
+    coregrounds_get_achievements($account);
+  }
+  // Loop over the given achievements.
+  $credits = 0;
+  foreach ($aids as $aid) {
+    // Skip completed achievements
+    if (isset($account->achievements[$aid]) && $account->achievements[$aid]->unlocked) continue;
+    $achievement = configQuery('achievements', 'id', $aid);
+    $fields = [];
+    $fields['unlocked'] = ($add >= $achievement['threshold'] ? 1 : 0);
+    $fields['progress'] = $fields['unlocked'] ? $achievement['threshold'] : $add;
+    if (isset($account->achievements[$aid])) {
+      if ($save_progress) {
+        $fields['unlocked'] = (($account->achievements[$aid]->progress + $add) >= $achievement['threshold'] ? 1 : 0);
+      }
+      if (!$reset) {
+        $fields['progress'] = $account->achievements[$aid]->progress + $add;
+      }
+    }
+    // Save record to database
+    db_merge('coregrounds_achievements')->key([
+      'aid' => $aid,
+      'uid' => $account->uid,
+    ])->fields($fields)->execute();
+    // Keep track of all achievements unlocked
+    if ($fields['unlocked']) {
+      $credits += $achievement['credits'];
+    }
+  }
+  if ($credits) {
+    // Get total unlocked for this user.
+    $unlocked = 0;
+    foreach ($account->achievements as $achievement) {
+      if ($achievement->unlocked == 1) {
+        $unlocked++;
+      }
+    }
+    coregrounds_update_player($account, array(
+      'achievement_progress' => ($unlocked / count(configQuery('achievements'))),
+    ), $credits);
+  }
+}
+
+/**
+ * Mark all unlocked achievements as "read"
+ */
+function coregrounds_mark_achievements_read($uid) {
+  db_update('coregrounds_achievements')->fields([
+    'updated' => 1
+  ])->condition('uid', $uid)->condition('unlocked', 1)->execute();
+}
+
+/**
+ * Get all unread achievements and mark them read
+ */
+function coregrounds_get_unread_achievements($uid) {
+  // Load all unread achievements
+  $q = "SELECT aid FROM coregrounds_achievements
+        WHERE uid = :uid AND unlocked = 1 AND updated = 0";
+  $achievementIds = db_query($q, [':uid' => $uid])->fetchCol();
+  // And mark them read
+  coregrounds_mark_achievements_read($uid);
+  return array_map('intval', $achievementIds);
+}
+
+/**
+ * Update a player's data.
+ */
+function coregrounds_update_player($account, $fields = array(), $credits = 0, $xp = 0) {
+  // Build a base query.
+  $query = db_update('coregrounds_players');
+  // Handle experience point gains.
+  if ($xp) {
+    $threshold = 100 * pow(1.1, $account->data->lvl);
+    // Calculate the new total xp.
+    $fields['xp'] = $account->data->xp + $xp;
+    // Check if we have a new level.
+    if ($fields['xp'] >= $threshold) {
+      $fields['xp'] -= $threshold;
+      $fields['lvl'] = $account->data->lvl + 1;
+      // Update the threshold accordingly.
+      $threshold = 100 * pow(1.1, $fields['lvl']);
+    }
+    $fields['level_progress'] = $fields['xp'] / $threshold;
+  }
+  // Handle credit gains.
+  if ($credits) {
+    $query->expression('coins', 'coins + :coins', array(':coins' => $credits));
+    $query->expression('coins_earned', 'coins_earned + :earned', array(':earned' => $credits));
+  }
+  // Handle field updates.
+  if ($fields) {
+    if (
+      // If we have a match that qualifies for the daily match bonus.
+      isset($fields['daily_match']) &&
+      // We only do this once a day.
+      $account->data->daily_match == 0 &&
+      // We cap the bonus at a 100%.
+      $account->data->daily_bonus < 100
+    ) {
+      $fields['daily_bonus'] = $account->data->daily_bonus + 10;
+    }
+    // Add the rest of the fields to the query.
+    $query->fields($fields);
+  }
+  // Write record to the database.
+  $query->condition('uid', $account->uid)->execute();
+}
+
+/**
+ * Helper function building session data to send to client
+ */
+function _get_session_data($uid, $config = TRUE, $token = FALSE) {
+  $data['token'] = $token
+    ? $token
+    : _create_session_token($uid);
+  $data['player'] = coregrounds_app_build_player_data($uid);
+  $data['achievements'] = coregrounds_get_unread_achievements($uid);
+  if ($config) {
+    $data['config'] = coregrounds_load_config_file();
+  }
+  return $data;
+}
+
+/**
+ * Helper function creating a session token
+ */
+function _create_session_token($uid) {
+  // Invalidate old sessions
+  db_delete('coregrounds_app_session')->condition('uid', $uid)->execute();
+  // Create new session token
+  $token = drupal_get_token(drupal_random_key());
+  // Save token and return it
+  db_insert('coregrounds_app_session')->fields(array(
+    'uid' => $uid,
+    'token' => $token,
+    'access' => REQUEST_TIME,
+  ))->execute();
+  return $token;
+}

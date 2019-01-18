@@ -1,0 +1,9 @@
+{
+  "apps" : [{
+    "name"       : "coregrounds-lobby",
+    "script"     : "app.js",
+    "env" : {
+       "NODE_ENV": "production"
+    }
+  }]
+}

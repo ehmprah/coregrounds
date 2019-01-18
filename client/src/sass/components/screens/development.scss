@@ -1,0 +1,10 @@
+.development-status {
+  display: flex;
+  label {
+    color: #666;
+  }
+  .issues,
+  .features {
+    flex: 1;
+  }
+}

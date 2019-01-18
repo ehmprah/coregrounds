@@ -1,0 +1,12 @@
+name = Shortcut
+description = Allows users to manage customizable lists of shortcut links.
+package = Core
+version = VERSION
+core = 7.x
+files[] = shortcut.test
+configure = admin/config/user-interface/shortcut
+
+; Information added by Drupal.org packaging script on 2018-10-17
+version = "7.60"
+project = "drupal"
+datestamp = "1539816636"

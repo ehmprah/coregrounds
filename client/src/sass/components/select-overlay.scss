@@ -1,0 +1,14 @@
+.select-overlay {
+  background: rgba(0,0,0,.75);
+  max-height: 100vh;
+  width: 100vw;
+  max-width: 640px;
+  padding: 1em;
+  overflow-y: scroll;
+  border: 2px solid #000;
+  button {
+    display: block;
+    margin: 2.5%;
+    width: 95%;
+  }
+}

@@ -1,0 +1,24 @@
+.item-list ul.pager {
+  margin:0;
+  li {
+    padding:0;
+    margin:0 10px 0 0;
+    display:block;
+    float:left;
+    width:60px;
+    div.box {
+      padding:0;
+    }
+    a {
+      color:#fff;
+      padding:0;
+      display:block;
+    }
+    a:hover {
+      color:$color;
+    }
+  }
+  li.pager-current {
+    color:#fff;
+  }
+}

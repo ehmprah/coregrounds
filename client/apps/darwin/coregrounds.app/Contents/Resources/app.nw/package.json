@@ -1,0 +1,12 @@
+{
+  "name": "coregrounds",
+  "main": "index.html",
+  "window": {
+      "title": "Coregrounds",
+      "toolbar": false,
+      "frame": true,
+      "fullscreen": true,
+      "icon": "icons/png/64x64.png"
+  },
+  "chromium-args": ""
+}

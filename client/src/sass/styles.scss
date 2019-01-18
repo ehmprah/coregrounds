@@ -1,0 +1,9 @@
+// Variables
+$offwhite: #dbdbdb;
+$almostwhite: #f2f2f2;
+
+// Reset styles
+@import 'vendor/minireset';
+
+// Add components
+@import "components/**/*";

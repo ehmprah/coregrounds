@@ -1,0 +1,63 @@
+.share {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+}
+
+.share a {
+  flex: 1;
+  color: #fff !important;
+  border: none;
+  text-align:  center;
+  text-transform:  uppercase;
+  text-shadow: none;
+  font-size: .8em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .25em .5em;
+  margin: .25em 0;
+  transition: opacity .2s;
+  opacity: 0.7;
+  &:hover{
+    border: none;
+    opacity: 1;
+  }
+  svg {
+    fill: #fff;
+    width: 20px;
+    height: 20px;
+    margin-right: .5em;
+  }
+}
+
+@media (min-width: 600px) {
+  .share {
+    flex-direction: row;
+    a {
+      margin: 0;
+      &:first-child {
+        margin-left: 0;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+a.reddit {
+  background-color: #FF4500;
+}
+
+a.mail {
+  background-color: #545454;
+}
+
+a.facebook {
+  background-color: #4267b2;
+}
+
+a.twitter {
+  background-color: #1da1f2;
+}

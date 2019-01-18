@@ -1,0 +1,46 @@
+.box,
+.blackbox {
+  border: 2px solid #000;
+  border-bottom-width: 3px;
+}
+
+.blackbox {
+  background-color: #0a0a0a;
+}
+
+.black-alpha {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+button.box:not([disabled]):hover,
+.menu button:not([disabled]):hover,
+.box.active,
+.clickable {
+  transition: filter .2s;
+  &:hover {
+    filter: brightness(1.2);
+  }
+}
+
+.color-highlight {
+  filter: brightness(1.5);
+}
+
+.color-grayscale {
+  filter: grayscale(0.6);
+}
+
+// Add default color
+.text-2408,
+.color-2408 .clr-text,
+.color-2408 a,
+.color-2408 a:visited,
+.color-2408 a.active,
+.color-2408 a:active {
+  color: #26a7ce;
+}
+
+body .color-2408 .box,
+.color-2408 .box {
+  background: #123844;
+}

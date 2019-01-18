@@ -1,0 +1,26 @@
+input[type="radio"] {
+  display:none;
+}
+
+input[type="radio"]:hover {
+  cursor: inherit;
+}
+
+input[type="radio"] + label {
+  display:inline-block;
+  vertical-align:middle;
+  padding: .5em .5em .5em 1.8em;
+  overflow: hidden;
+  background: url(img/radio-off.svg) left center no-repeat;
+  cursor: inherit;
+}
+
+input[type="radio"]:checked + label {
+  background: url(img/radio-on.svg) left center no-repeat;
+}
+
+.form-disabled {
+  input[type="radio"] + label {
+    opacity:0.5;
+  }
+}

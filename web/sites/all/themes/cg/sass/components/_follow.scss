@@ -1,0 +1,25 @@
+a.follow {
+  width: 30px;
+  height: 30px;
+  background-size: 30px;
+  display: inline-block;
+  text-indent: -9999px;
+  opacity: 0.5;
+  margin:9px 2px;
+  border-radius: 4px;
+  vertical-align: top;
+}
+
+a.follow:hover {
+  text-decoration: none;
+  opacity:1;
+}
+
+a.follow.follow-twitter { background-image:url("../images/twitter.png"); }
+a.follow.follow-facebook { background-image:url("../images/facebook.png"); }
+a.follow.follow-indiedb { background-image:url("../images/indiedb.png"); }
+a.follow.follow-steam { background-image:url("../images/steam.png"); }
+a.follow.follow-discord { background-image:url("../images/discord.png"); }
+a.follow.follow-reddit { background-image:url("../images/reddit.png"); }
+a.follow.follow-instagram { background-image:url("../images/instagram.png"); }
+a.follow.follow-youtube { background-image:url("../images/youtube.png"); }

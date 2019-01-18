@@ -1,0 +1,26 @@
+table {
+  td, th {
+    padding: 4px 8px; vertical-align: middle;
+  }
+}
+
+.ladder {
+  table {
+    width: 100%;
+    font-size: 0.9em;
+    tr {
+      border-bottom: 1px solid #222;
+    }
+    tbody tr:last-of-type {
+      border-bottom: none;
+    }
+    th, td {
+      text-align: center;
+      &:first-of-type {
+        text-align: left;
+      }
+    }
+  }
+}
+
+// TODO add mobile styling

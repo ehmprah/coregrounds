@@ -1,0 +1,104 @@
+
+.icon-boost-wins,
+.icon-boost-until,
+.icon-boost-perma {
+  width:64px;
+  height:64px;
+  background-position: center center;
+  background-repeat:no-repeat;
+  margin:0 auto;
+}
+
+.icon-boost-wins { background-size:40px; }
+.icon-boost-until { background-size:36px; }
+.icon-boost-perma { background-size:64px; }
+
+.boost h3 {
+  color:#fff;
+}
+
+#cart {
+  display:none;
+  .box {
+    padding: 0 1px 1px 1px !important;
+  }
+  .box-inner {
+    padding:0;
+  }
+  .item {
+    border-bottom: 1px solid rgba(255,255,255,0.6);
+  }
+  .desc { 
+    float:left;
+    line-height: 40px;
+    padding:0 15px;
+  }
+  .amt {
+    float:right;
+  }
+  input[type="text"] {
+    width:40px;
+    height:40px;
+    float:left;
+    text-align:center;
+    border:none;
+    background:none;
+    color:#fff;
+  }
+  a.plus,
+  a.minus {
+    display:block;
+    width: 40px;
+    line-height: 40px;
+    float: left;
+    font-size: 2em;
+    text-align: center;
+  }
+  div.price {
+    line-height:40px;
+    float:left;
+    width:80px;
+    text-align: right;
+  }
+  div.eur {
+    width: 30px;
+    float: left;
+    line-height: 40px;
+    text-align: center;
+  }
+  .total .label {
+    line-height: 40px;
+    width: 120px;
+    text-align: center;
+  }
+  .checkout {
+    padding:15px;
+    border-bottom:none;
+  }
+  .revocation {
+    padding:10px;
+    div {
+      float:right;
+      input {
+        float:left;
+        margin:7px;
+      }
+      label {
+        font-weight: normal;
+        margin-left: 30px;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+#cart.review {
+  display:block;
+  .amount {
+    line-height:40px;
+    float:left;
+  }
+  .label {
+    text-align: right;
+  }
+}

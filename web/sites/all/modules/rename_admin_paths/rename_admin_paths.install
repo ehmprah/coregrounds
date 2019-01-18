@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Administrative pages module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function rename_admin_paths_uninstall() {
+
+  // Delete all variables defined by path admin
+  variable_del('rename_admin_path');
+  variable_del('rename_admin_path_value');
+  variable_del('rename_user_path');
+  variable_del('rename_user_path_value');
+}

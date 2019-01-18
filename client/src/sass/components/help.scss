@@ -1,0 +1,37 @@
+.page.help {
+  transition: all .1s;
+}
+
+.help-overlay {
+  width: 100%;
+  margin: auto;
+  padding-bottom: 56.25%;
+  position: relative;
+
+  .base,
+  .text {
+    position: absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    z-index:0;
+  }
+
+  .text {
+    z-index: 1;
+  }
+
+}
+
+.help-box {
+  background:rgba(255, 255, 255, 0.4);
+  padding: 1vw;
+  font-size: 1.5vw;
+  line-height: 1.5vw;
+  user-select: none;
+}
+
+.help-box:hover {
+  cursor: inherit;
+}

@@ -1,0 +1,4 @@
+name = Coregrounds App
+description = Rest API for the Coregrounds App
+core = 7.x
+package = Coregrounds

@@ -1,0 +1,264 @@
+syntax = "proto3";
+
+package protobuf.out;
+
+message Login
+{
+    enum Result
+    {
+        success         = 0;
+        reconnect       = 1;
+
+        noMatchFound    = 2;
+        timeout         = 3;
+        matchCanceled    = 4;
+    }
+    Result result = 1;
+}
+
+message Match
+{
+    message OptionalIds
+    {
+        bool isSet = 1;
+        repeated uint32 ids = 2;
+    }
+
+    message OptionalString
+    {
+        bool isSet  = 1;
+        string text = 2;
+    }
+
+    message Pick
+    {
+        enum State
+        {
+            none            = 0;
+            factoryBan      = 1;
+            abilityBan      = 2;
+            factoryPick     = 3;
+            abilityPick     = 4;
+            modSelection    = 5;
+            finished        = 6;
+        }
+        State state = 1;
+        uint32 time = 2;                // turn time in tenth of a second
+
+        message Player
+        {
+            repeated uint32 factoryBans = 1;
+            repeated uint32 abilityBans = 2;
+            repeated uint32 factoryPicks = 3;
+            repeated uint32 abilityPicks = 4;
+
+            uint32 colorID = 5;                 // highest bit dirty flag
+            uint32 emoteID = 6;                 // 0 == no emote
+            OptionalIds skins = 7;
+            uint32 modPageId = 8;               // 0 = no selection
+            repeated uint32 availableIDs = 9;
+            uint32 teamId = 10;
+        }
+        repeated Player player = 3;
+        uint32 playerIndex = 4;             // highest bit dirty flag
+        uint32 activePlayerIndex = 5;       // highest bit dirty flag
+    }
+
+    message Game
+    {
+        message Unit
+        {
+            uint32 guid = 1;
+            uint32 id = 2;                  // highest bit dirty flag
+
+            uint32 position = 3;            // 1 tile = 1000; x = bit 0...14; y = bit 15...29; highest bit dirty flag
+            uint32 hp = 4;                  // percent; highest bit dirty flag
+
+            repeated float stats = 5;       // for order and amount of stats look into unit wiki
+            OptionalIds auraVisualIds = 6;
+
+            uint32 state = 7;               // highest bit dirty flag; 0 = justSpawned, 1 = alive, 2 = justDied, 3 = dead
+        }
+
+        message Core
+        {
+            Unit unit = 1;
+        }
+
+        message Wall
+        {
+            Unit unit = 1;
+            uint32 chainBonus = 2;          // highest bit dirty flag
+        }
+
+        message Tower
+        {
+            Unit unit = 1;
+            uint32 cooldown = 2;            // bit 0...15 time in tenth of a second; bit 16...30 progress in percent; highest bit dirty flag
+            uint32 attackProgress = 3;      // progress in percent; highest bit dirty flag
+            uint32 directionVector = 4;     // bit 0...14 x; bit 15..29 y; values between 0...1000; highest bit dirty flag
+            uint32 attackRadius = 5;        // 1 tile = 1000; highest bit dirty flag
+        }
+
+        message Minion
+        {
+            Unit unit = 1;
+            uint32 attackProgress = 2;      // progress in percent; highest bit dirty flag
+            uint32 directionVector = 3;     // bit 0...14 x; bit 15..29 y; values between 0...2000 (real values between -1 and 1) ; highest bit dirty flag
+        }
+
+        message Projectile
+        {
+            Unit unit = 1;
+            uint32 directionVector = 2;     // bit 0...14 x; bit 15..29 y; values between 0...1000; highest bit dirty flag
+            uint32 startPosition = 3;       // 1 tile = 1000; x = bit 0...14; y = bit 15...29; highest bit dirty flag
+            uint32 destinationPosition = 4;       // 1 tile = 1000; x = bit 0...14; y = bit 15...29; highest bit dirty flag
+        }
+
+        message Trigger
+        {
+            Unit unit = 1;
+        }
+
+        message Visual
+        {
+            uint32 id = 1;
+            uint32 position = 2;                // 1 tile = 1000; x = bit 0...14; y = bit 15...29
+            oneof Area
+            {
+                // size of an area. 1000 = 1 tile
+                uint32 circleRadius = 3;
+                uint32 rectSize = 4;            // bit 0...15 width; bit 16...31 height
+            }
+        }
+
+        message Factory
+        {
+            uint32 id = 1;                      // highest bit dirty flag
+
+            message Wall
+            {
+                uint32 stacks = 1;              // bit 0...6 = current stacks; bit 7...13 = max stacks; bit 14...20 = stack progress in percent; highest bit dirty flag
+            }
+
+            message Tower
+            {
+                uint32 guid = 1;                // stores tower guid; if = 0 no tower built
+                uint32 level = 2;               // bit 0...14 = current level; bit 15...30 = progress in percent; highest bit dirty flag
+
+                uint32 cooldown = 3;            // bit 0...15 time in tenth of a second; bit 16...30 progress in percent; highest bit dirty flag
+                uint32 upgrades = 4;            // bit 0...2 = upgrade1; bit 3...5 = upgrade2; bit 6...8 = upgrade3; highest bit dirty flag
+                uint32 targetPreference = 5;    // bit 0...14 = unit type (flag values: core = 1; wall = 2; tower = 4; minion = 8); bit 15...30 = mode (low = 1; high = 2; first = 3; random = 4);
+                                                // highest bit dirty flag
+            }
+
+            message Minion
+            {
+                uint32 stacks = 1;              // bit 0...6 = current stacks; bit 7...13 = max stacks; bit 14...20 = stack progress in percent; highest bit dirty flag
+                uint32 level = 2;               // bit 0...14 = current level; bit 15...30 = progress in percent; highest bit dirty flag
+                uint32 targetPreference = 3;    // bit 0...14 = unit type (flag values: core = 1; wall = 2; tower = 4; minion = 8); bit 15...30 = mode (low = 1; high = 2; first = 3; random = 4);
+                                                // highest bit dirty flag
+                uint32 cooldown = 4;            // bit 0...15 time in tenth of a second; bit 16...30 progress in percent; highest bit dirty flag
+                uint32 upgrades = 5;            // bit 0...2 = upgrade1; bit 3...5 = upgrade2; bit 6...8 = upgrade3; highest bit dirty flag
+            }
+
+            oneof type
+            {
+                Wall wall = 2;
+                Tower tower = 3;
+                Minion minion = 4;
+            }
+
+            repeated float stats = 5;       // for order and amount of stats look into device wiki
+            OptionalIds auraVisualIds = 6;
+        }
+
+        message Ability
+        {
+            uint32 id = 1;                  // highest bit dirty flag
+            uint32 cooldown = 2;            // bit 0...15 time in tenth of a second; bit 16...30 progress in percent; highest bit dirty flag
+            repeated float stats = 3;       // for order and amount of stats look into device wiki
+            OptionalIds auraVisualIds = 4;
+        }
+
+        message OptionalGUID
+        {
+            bool isSet = 1;
+            uint32 guid = 2;
+        }
+
+        message Player
+        {
+            uint32 colorID = 1;                 // highest bit dirty flag
+            uint32 minionLimit = 2;             // percent 0..100; highest bit dirty flag
+            Core core = 3;
+            repeated Wall walls = 4;
+            repeated Tower towers = 5;
+            repeated Minion minions = 6;
+            repeated Projectile projectiles = 7;
+            repeated Trigger triggers = 8;
+            repeated Visual visuals = 9;
+            uint32 emoteId = 10;                // 0 == no emote
+            uint32 teamId = 19;
+            OptionalIds skins = 18;
+
+            /*#####
+            # all fields below are only set for the specific player or in spectating mode
+            #####*/
+            repeated Factory factories = 11;
+            repeated Ability abilities = 12;
+
+            bytes visibilityMap = 13;            // 15 width * 7 height / 4 (row by row); 0 hidden, 1 partial visible, 2 visible
+                                                 // 4 cells are summarized into one byte (2 bits for each cell)
+            bytes buildingMap = 14;              // 15 width * 7 height; 1 bit per cell
+
+            OptionalGUID globalTarget = 15;
+            uint32 flags = 16;                   // highest bit dirty flag; settled = 1
+            OptionalGUID foremostMinion = 17;
+        }
+        repeated Player player = 1;
+        uint32 playerIndex = 2;                 // highest bit dirty flag
+        uint32 gameTime = 3;                    // game time in msec
+        uint32 warmUpTime = 4;                  // time before game starts; time in tenth of a second
+    }
+
+    message Finalize
+    {
+        message Player
+        {
+            uint32 colorID          = 1;              // highest bit dirty flag
+            uint32 icon             = 2;              // highest bit dirty flag
+            OptionalString name     = 3;
+
+            uint32 emoteId          = 4;              // 0 == no emote
+            uint32 teamId           = 5;
+        }
+        repeated Player players     = 1;
+        uint32 playerIndex          = 2;              // highest bit dirty flag
+        uint32 permMatchId          = 3;              // no dirty flag; 0 == invalid (or patch)
+        uint32 timeLeft             = 4;              // time left for phase; time in tenth of a second
+        uint32 winningTeamId        = 5;              // highest bit dirty flag; 0 == draw
+        //ToDo: reason              = 6;
+    }
+
+    oneof Phase
+    {
+        Pick pick           = 1;
+        Game game           = 2;
+        Finalize finalize   = 3;
+    }
+}
+
+message Pong
+{
+}
+
+message Message
+{
+    oneof event
+    {
+        Login login = 1;
+        Match match = 3;
+        Pong pong = 4;
+    }
+}

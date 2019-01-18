@@ -1,0 +1,13 @@
+name = Book
+description = Allows users to create and organize related content in an outline.
+package = Core
+version = VERSION
+core = 7.x
+files[] = book.test
+configure = admin/content/book/settings
+stylesheets[all][] = book.css
+
+; Information added by Drupal.org packaging script on 2018-10-17
+version = "7.60"
+project = "drupal"
+datestamp = "1539816636"

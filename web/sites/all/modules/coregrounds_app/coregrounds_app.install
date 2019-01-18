@@ -1,0 +1,32 @@
+<?php
+/**
+ * Implementation of hook_schema().
+ */
+function coregrounds_app_schema() {
+ 
+   $schema['coregrounds_app_session'] = array(
+    'fields' => array(
+      'uid' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'token' => array('type' => 'varchar', 'length' => 43,'not null' => TRUE,'default' => ''),
+      'access' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+    ),
+    'primary key' => array('uid', 'token'),
+  );
+
+  return $schema;
+}
+
+/**
+ * Implementation of hook_install().
+ */
+function coregrounds_app_install() {
+  // Do stuff
+}
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function coregrounds_app_uninstall() {
+  // Do stuff
+
+}

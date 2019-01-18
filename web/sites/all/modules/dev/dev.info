@@ -1,0 +1,5 @@
+name = dev
+description = Development tools by bitcrafts.de
+package = Development
+core = 7.x
+

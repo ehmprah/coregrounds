@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <BoostDir>$(SolutionDir)ThirdParty\boost\boost_1_67_0\</BoostDir>
+    <SimpleLibDir>$(SolutionDir)ThirdParty\SimpleLibV2\src\</SimpleLibDir>
+    <ProtobufDir>$(SolutionDir)ThirdParty\protobuf\protobuf-3.5.1</ProtobufDir>
+    <CMakeDir>$(SolutionDir)ThirdParty\cmake\cmake-3.10.1-win64-x64</CMakeDir>
+	<JsonLibDir>$(SolutionDir)ThirdParty\json\include</JsonLibDir>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup />
+  <ItemGroup>
+    <BuildMacro Include="BoostDir">
+      <Value>$(BoostDir)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="SimpleLibDir">
+      <Value>$(SimpleLibDir)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="ProtobufDir">
+      <Value>$(ProtobufDir)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="CMakeDir">
+      <Value>$(CMakeDir)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+	<BuildMacro Include="JsonLibDir">
+      <Value>$(JsonLibDir)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

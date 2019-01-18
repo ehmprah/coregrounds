@@ -1,0 +1,28 @@
+.tos {
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  background: #000;
+  padding: 1em;
+  max-width: 800px;
+  margin: 0 auto;
+  .tos-content {
+    flex: 1;
+    overflow-y: scroll;
+    padding: 5px;
+  }
+  .tos-accept {
+    flex: 1;
+    .buttons {
+      display: flex;
+      margin-top: 1em;
+    }
+    button {
+      justify-content: center;
+      flex: 1;
+      &:first-child {
+        margin-right: 1em;
+      }
+    }
+  }
+}

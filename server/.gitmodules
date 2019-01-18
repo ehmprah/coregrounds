@@ -1,0 +1,6 @@
+[submodule "ThirdParty/json"]
+	path = ThirdParty/json
+	url = git@github.com:nlohmann/json.git
+[submodule "ThirdParty/SimpleLibV2"]
+	path = ThirdParty/SimpleLibV2
+	url = git@github.com:DNKpp/SimpleLibV2.git

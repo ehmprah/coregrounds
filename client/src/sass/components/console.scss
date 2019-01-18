@@ -1,0 +1,40 @@
+#console {
+  font-family: monospace;
+  background: rgba(0, 0, 0, 0.5);
+  color: #dbdbdb;
+  font-size: 14px;
+  line-height: 20px;
+  z-index: 999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 300px;
+  transition: transform .4s;
+  transform: translate(0, -100%);
+  padding-left: 10px;
+  &.active {
+    transform: translate(0, 0);
+  }
+  .log {
+    height: 270px;
+    overflow: scroll;
+    .error {
+      color: red;
+    }
+  }
+  input[type="text"] {
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    width: 90%;
+    font-family: monospace;
+    height: 20px;
+    padding: 0 10px;
+    font-size: 14px;
+  }
+  input[type="text"]:focus {
+    outline: none;
+  }
+}

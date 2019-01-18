@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Quelldateien">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Headerdateien">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="MainAI">
+      <UniqueIdentifier>{25102765-d304-4780-a73d-b20cbba1c6be}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AI\AICreator.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\BaseAI.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\dllmain.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\stdafx.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\Utility.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\MainAI\MainAI.cpp">
+      <Filter>MainAI</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\MainAI\HeatMap.cpp">
+      <Filter>MainAI</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\MainAI\TowerStrategy.cpp">
+      <Filter>MainAI</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\MainAI\MinionStrategy.cpp">
+      <Filter>MainAI</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\MainAI\AbilityStrategy.cpp">
+      <Filter>MainAI</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\MainAI\WallStrategy.cpp">
+      <Filter>MainAI</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\MainAI\AbilitySubStrategy.cpp">
+      <Filter>MainAI</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AI\AICreator.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\BaseAI.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\ExampleAI.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\stdafx.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\targetver.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\Utility.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\EmptyAI.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\MainAI\WallStrategy.hpp">
+      <Filter>MainAI</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\MainAI\MainAI.hpp">
+      <Filter>MainAI</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\MainAI\MinionStrategy.hpp">
+      <Filter>MainAI</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\MainAI\TowerStrategy.hpp">
+      <Filter>MainAI</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\MainAI\AbilityStrategy.hpp">
+      <Filter>MainAI</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\MainAI\HeatMap.hpp">
+      <Filter>MainAI</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\MainAI\StrategyResponse.hpp">
+      <Filter>MainAI</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\MainAI\StrategyFlags.hpp">
+      <Filter>MainAI</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\MainAI\AbilitySubStrategy.hpp">
+      <Filter>MainAI</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

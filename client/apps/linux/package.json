@@ -1,0 +1,12 @@
+{
+  "name": "coregrounds",
+  "main": "package.nw/index.html",
+  "window": {
+      "title": "Coregrounds",
+      "toolbar": false,
+      "frame": true,
+      "fullscreen": true,
+      "icon": "package.nw/icon/64x64.png"
+  },
+  "chromium-args": "--in-process-gpu --disable-transparency"
+}

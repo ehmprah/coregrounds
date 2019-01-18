@@ -1,0 +1,73 @@
+h3.changes {
+  border-bottom: 1px solid;
+  padding-bottom: .5em;
+  margin-bottom: .75em;
+}
+
+ul.changes {
+  padding:0;
+  li {
+    padding-left: 130px;
+    list-style-type: none;
+    margin: 0 0 15px 0;
+    position: relative;
+  }
+  li.nerfed:before,
+  li.removed:before,
+  li.changed:before,
+  li.buffed:before,
+  li.fixed:before,
+  li.added:before {
+    border-radius: 3px;
+    font-size: 15px;
+    width: 120px;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  li.removed:before {
+    content: 'REMOVED';
+    border: 1px solid darkred;
+  }
+  li.nerfed:before {
+    content: 'NERFED';
+    border: 1px solid orangered;
+  }
+  li.changed:before {
+    content: 'CHANGED';
+    border: 1px solid mediumpurple;
+  }
+  li.buffed:before {
+    content: 'BUFFED';
+    border: 1px solid seagreen;
+  }
+  li.added:before {
+    content: 'ADDED';
+    border: 1px solid slateblue;
+  }
+  li.fixed:before {
+    content: 'FIXED';
+    border: 1px solid steelblue;
+  }
+}
+
+span.notes {
+  font-style: italic;
+  color: #898989;
+}
+
+span.name {
+  text-transform: uppercase;
+  border:1px solid;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-right:10px;
+  font-size:16px;
+}
+
+button.previous {
+  display: block;
+  width: 100%;
+  margin: 2em 0;
+}

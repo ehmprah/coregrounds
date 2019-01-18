@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Deployment|x64">
+      <Configuration>Deployment</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Core\AI.hpp" />
+    <ClInclude Include="Core\Json.hpp" />
+    <ClInclude Include="Core\ParticipantData.hpp" />
+    <ClInclude Include="Core\protobuf\Includes.hpp" />
+    <ClInclude Include="Core\Shape.hpp" />
+    <ClInclude Include="Core\BoostInclude.hpp" />
+    <ClInclude Include="Core\CastableHandle.hpp" />
+    <ClInclude Include="Core\CastableSnapshot.hpp" />
+    <ClInclude Include="Core\DeviceDefines.hpp" />
+    <ClInclude Include="Core\DeviceFwd.hpp" />
+    <ClInclude Include="Core\EntityFwd.hpp" />
+    <ClInclude Include="Core\HelperFunctions.hpp" />
+    <ClInclude Include="Core\log.hpp" />
+    <ClInclude Include="Core\MapFwd.hpp" />
+    <ClInclude Include="Core\Random.hpp" />
+    <ClInclude Include="Core\SharedDefines.hpp" />
+    <ClInclude Include="Core\SLInclude.hpp" />
+    <ClInclude Include="Core\SpellFwd.hpp" />
+    <ClInclude Include="Core\StatContainer.hpp" />
+    <ClInclude Include="Core\PhaseDef.hpp" />
+    <ClInclude Include="Core\StatModifier.hpp" />
+    <ClInclude Include="Core\StdInclude.hpp" />
+    <ClInclude Include="Core\TargetPreference.hpp" />
+    <ClInclude Include="Core\Timer.hpp" />
+    <ClInclude Include="Core\UnitDefines.hpp" />
+    <ClInclude Include="Core\UnitFwd.hpp" />
+    <ClInclude Include="GeneratedFiles\protobuf\InputMessages.pb.h" />
+    <ClInclude Include="GeneratedFiles\protobuf\OutputMessages.pb.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Core\HelperFunctions.cpp" />
+    <ClCompile Include="Core\Json.cpp" />
+    <ClCompile Include="Core\log.cpp" />
+    <ClCompile Include="Core\ParticipantData.cpp" />
+    <ClCompile Include="GeneratedFiles\protobuf\InputMessages.pb.cc" />
+    <ClCompile Include="GeneratedFiles\protobuf\OutputMessages.pb.cc" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Core\protobuf\InputMessages.proto">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">protoc -I=$(ProjectDir)%(RelativeDir) --cpp_out=$(ProjectDir)GeneratedFiles\protobuf\ $(ProjectDir)%(Identity)</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">protoc %(Identity)</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)GeneratedFiles\protobuf\%(Filename).pb.cc;$(ProjectDir)GeneratedFiles\protobuf\%(Filename).pb.h</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">protoc -I=$(ProjectDir)%(RelativeDir) --cpp_out=$(ProjectDir)GeneratedFiles\protobuf\ $(ProjectDir)%(Identity)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Deployment|x64'">protoc -I=$(ProjectDir)%(RelativeDir) --cpp_out=$(ProjectDir)GeneratedFiles\protobuf\ $(ProjectDir)%(Identity)</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">protoc %(Identity)</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Deployment|x64'">protoc %(Identity)</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)GeneratedFiles\protobuf\%(Filename).pb.cc;$(ProjectDir)GeneratedFiles\protobuf\%(Filename).pb.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Deployment|x64'">$(ProjectDir)GeneratedFiles\protobuf\%(Filename).pb.cc;$(ProjectDir)GeneratedFiles\protobuf\%(Filename).pb.h</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="Core\protobuf\OutputMessages.proto">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">protoc -I=$(ProjectDir)%(RelativeDir) --cpp_out=$(ProjectDir)GeneratedFiles\protobuf\ $(ProjectDir)%(Identity)</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">protoc %(Identity)</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)GeneratedFiles\protobuf\%(Filename).pb.cc;$(ProjectDir)GeneratedFiles\protobuf\%(Filename).pb.h</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">protoc -I=$(ProjectDir)%(RelativeDir) --cpp_out=$(ProjectDir)GeneratedFiles\protobuf\ $(ProjectDir)%(Identity)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Deployment|x64'">protoc -I=$(ProjectDir)%(RelativeDir) --cpp_out=$(ProjectDir)GeneratedFiles\protobuf\ $(ProjectDir)%(Identity)</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">protoc %(Identity)</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Deployment|x64'">protoc %(Identity)</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)GeneratedFiles\protobuf\%(Filename).pb.cc;$(ProjectDir)GeneratedFiles\protobuf\%(Filename).pb.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Deployment|x64'">$(ProjectDir)GeneratedFiles\protobuf\%(Filename).pb.cc;$(ProjectDir)GeneratedFiles\protobuf\%(Filename).pb.h</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{22C0608A-DED6-4908-B8B8-915B906A2C7A}</ProjectGuid>
+    <RootNamespace>Core</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Deployment|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Deployment|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(SolutionDir)PropertySheet.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(SolutionDir)PropertySheet.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Deployment|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(SolutionDir)PropertySheet.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IntDir>$(SolutionDir)tmp\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <TargetName>$(ProjectName)d</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <TargetExt>.lib</TargetExt>
+    <IntDir>$(SolutionDir)tmp\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Deployment|x64'">
+    <TargetExt>.lib</TargetExt>
+    <IntDir>$(SolutionDir)tmp\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)lib\</OutDir>
+    <ExecutablePath>$(ProtobufDir)\..\install\bin;$(VC_ExecutablePath_x64);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(FxCopDir);$(PATH);</ExecutablePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)lib\</OutDir>
+    <ExecutablePath>$(ProtobufDir)\..\install\bin;$(VC_ExecutablePath_x64);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(FxCopDir);$(PATH);</ExecutablePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Deployment|x64'">
+    <OutDir>$(SolutionDir)lib\</OutDir>
+    <ExecutablePath>$(ProtobufDir)\..\install\bin;$(VC_ExecutablePath_x64);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(FxCopDir);$(PATH);</ExecutablePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>.;$(ProtobufDir)\..\install\include;$(BoostDir);$(SimpleLibDir);$(JsonLibDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>false</SDLCheck>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalOptions>/std:c++latest /permissive- /FS %(AdditionalOptions)</AdditionalOptions>
+      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_SCL_SECURE_NO_WARNINGS;_UNICODE;UNICODE;%(PreprocessorDefinitions);_HAS_AUTO_PTR_ETC</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>.;$(ProtobufDir)\..\install\include;$(BoostDir);$(SimpleLibDir);$(JsonLibDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Deployment|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>.;$(ProtobufDir)\..\install\include;$(BoostDir);$(SimpleLibDir);$(JsonLibDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>false</SDLCheck>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalOptions>/std:c++latest /permissive- /FS %(AdditionalOptions)</AdditionalOptions>
+      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_SCL_SECURE_NO_WARNINGS;_UNICODE;UNICODE;%(PreprocessorDefinitions);_HAS_AUTO_PTR_ETC</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Deployment|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>false</SDLCheck>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalOptions>/std:c++latest /permissive- /FS %(AdditionalOptions)</AdditionalOptions>
+      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_SCL_SECURE_NO_WARNINGS;_UNICODE;UNICODE;%(PreprocessorDefinitions);_HAS_AUTO_PTR_ETC</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

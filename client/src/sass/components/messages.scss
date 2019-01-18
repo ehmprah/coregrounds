@@ -1,0 +1,29 @@
+#messages {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: block;
+  z-index: 3;
+  pointer-events: none;
+  .message {
+    pointer-events: none;
+    padding: 1em;
+    transition: all .4s;
+    text-align: center;
+    font-size: 2em;
+    &.error,
+    &.warning {
+      color: orangered;
+    }
+  }
+  .remove {
+    opacity: 0;
+    animation: fadeOut 1s linear;
+  }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1 }
+  100% { opacity: 0 }
+}

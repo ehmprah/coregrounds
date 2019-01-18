@@ -1,0 +1,129 @@
+html,body {
+  height:100%;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.content-wrap {
+  flex:1;
+  padding:20px 0;
+}
+
+.l-header,
+.l-main,
+.l-footer {
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 0 10px;
+}
+
+.block-desktop,
+.inline-desktop {
+  display:none !important;
+}
+
+.l-main {
+  position: relative;
+  z-index:0;
+}
+
+@media (min-width: 960px) {
+
+  .block-mobile,
+  .inline-mobile {
+    display:none !important;
+  }
+
+  .block-desktop {
+    display:block !important;
+  }
+
+  .inline-desktop {
+    display:inline-block !important;
+  }
+
+  .l-2col {
+    width: 48.93617%;
+    float: left;
+    margin-right: 2.12766%;
+  }
+  .l-2col:nth-child(2n) {
+    float: right;
+    margin-right: 0;
+  }
+
+  .l-3col {
+    width: 31.91489%;
+    float: left;
+    margin-right: 2.12766%;
+  }
+  .l-3col:nth-child(3n) {
+    float: right;
+    margin-right: 0;
+  }
+
+  .l-4col {
+    width: 23.40426%;
+    float: left;
+    margin-right: 2.12766%;
+  }
+  .l-4col:nth-child(4n) {
+    float: right;
+    margin-right: 0;
+  }
+
+  .l-5col {
+    width:18%;
+    margin-right:2.5%;
+    float:left;
+  }
+  .l-5col:last-child {
+    margin-right:0;
+  }
+
+  .l-6col {
+    width:15%;
+    margin-right:2%;
+    float:left;
+  }
+  .l-6col:last-child {
+    margin-right:0;
+  }
+
+  .l-74 {
+    float:right;
+    width:66%;
+  }
+
+  .l-47 {
+    float:left;
+    width:30%;
+  }
+
+  .l-3q,
+  .l-93 {
+    float:left;
+    width:74%;
+  }
+
+  .l-1q,
+  .l-39 {
+    float:right;
+    width:24%;
+  }
+
+  .l-2third {
+    float:left;
+    width:65%;
+  }
+
+  .l-1third {
+    float:right;
+    width:34%;
+  }
+}

@@ -1,0 +1,16 @@
+name = cg
+description = Coregrounds Theme
+screenshot = screenshot.png
+engine = phptemplate
+core = 7.x
+
+; Regions
+regions[header]         = Header
+regions[content]        = Content
+regions[footer]         = Footer
+
+; Styles
+stylesheets[all][] = css/styles.css
+
+; Scripts
+scripts[] = js/cg.behaviors.js

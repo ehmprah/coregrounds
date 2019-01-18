@@ -1,0 +1,97 @@
+.menu {
+  width: 100%;
+  max-width: 320px;
+  button {
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin-bottom: .75em;
+  }
+}
+
+#menu {
+  max-width: 320px;
+  background: #0c0c0c;
+  box-shadow: 1px 0 4px #000;
+  height: 100vh;
+  padding: 50px 0 0 0;
+  z-index: 3;
+  position: relative;
+  overflow-y: auto;
+  transition-timing-function: ease-in;
+  transition: 0.2s;
+  transform: translateX(-130%);
+  &.active {
+    transition-timing-function: ease-out;
+    transition: 0.25s;
+    transform: translateX(0);
+  }
+  .close-menu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    svg {
+      width: 100%;
+    }
+    &:hover {
+      background: none;
+    }
+  }
+  button {
+    background: none;
+    padding: 1em 1.25em;
+    width: 100%;
+    line-height: 32px;
+    .icon {
+      width: 32px;
+      height: 32px;
+      margin-right: 16px;
+      svg {
+        width: 100%;
+      }
+    }
+    &:hover {
+      background: #222;
+    }
+    transition: all .2s;
+  }
+  .menu-spacer {
+    margin: .75em 0;
+    border-top: 1px solid #333;
+  }
+}
+
+#menu-tint {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+  transition-timing-function: ease-in;
+  transition: background 0.2s;
+  transform: translateX(-100%);
+  &.active {
+    transition-timing-function: ease-out;
+    transition: background 0.25s;
+    transform: translateX(0);
+    background: rgba(0, 0, 0, 0.5);
+  }
+}
+
+.show-menu {
+  position: fixed;
+  left: 15px;
+  top: 10px;
+  background: none;
+  padding: 0;
+  width: 40px;
+  svg {
+    width: 100%;
+    height: auto;
+    fill: #dbdbdb;
+  }
+}

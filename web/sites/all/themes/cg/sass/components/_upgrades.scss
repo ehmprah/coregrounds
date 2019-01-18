@@ -1,0 +1,21 @@
+.select-page {
+  padding:0 10px;
+  margin-right:10px;
+}
+
+a.select-page {
+  display:block;
+}
+
+@media (min-width: 960px) {
+  .upgrade-page {
+    .form-item {
+      float:left;
+      width:49%;
+      margin:0 2% 2% 0;
+    }
+    .form-item:nth-child(2n) {
+      margin-right:0;
+    }
+  }
+}

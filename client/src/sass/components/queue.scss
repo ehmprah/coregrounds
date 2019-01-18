@@ -1,0 +1,53 @@
+#queue {
+  position:absolute;
+  top: 0;
+  left: 50%;
+  width: 280px;
+  z-index: 6;
+  line-height: 20px;
+  padding-left: 40px;
+  transform: translateX(-50%) translateY(-100%);
+  transition: all 0.3s;
+  &.active {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  #quit-queue {
+    float: right;
+    svg {
+      fill: #dbdbdb;
+      width: 40px;
+      margin: 10px;
+    }
+  }
+
+  .timer {
+    background: #000;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 10px 50px 10px 20px;
+    div.clearfix span {
+      float: right;
+    }
+    &::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-top: 60px solid black;
+      border-left: 40px solid transparent;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    &::before {
+      content: '';
+      width: 0;
+      height: 0;
+      border-top: 60px solid black;
+      border-right: 40px solid transparent;
+      position: absolute;
+      right: -40px;
+      top: 0;
+    }
+  }
+}

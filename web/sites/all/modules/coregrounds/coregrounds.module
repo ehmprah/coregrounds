@@ -1,0 +1,703 @@
+<?php
+/**
+ * Implementation of hook_menu().
+ */
+function coregrounds_menu() {
+
+  $items['front'] = array(
+    'title' => 'Start',
+    'page callback' => 'coregrounds_front',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/coregrounds.pages.inc',
+  );
+
+  $items['news'] = array(
+    'title' => 'News',
+    'page callback' => 'coregrounds_news',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/coregrounds.pages.inc',
+  );
+
+  $items['devgrounds'] = array(
+    'title' => 'Devgrounds',
+    'page callback' => 'coregrounds_devgrounds',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/coregrounds.devgrounds.inc',
+  );
+
+  $items['scoregrounds'] = array(
+    'title' => 'Scoregrounds',
+    'page callback' => 'coregrounds_leaderboard',
+    'page arguments' => array('ranked'),
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/coregrounds.pages.inc',
+  );
+
+  $items['scoregrounds/ranked'] = array(
+    'title' => 'Ranked',
+    'weight' => 0,
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+  );
+
+  $items['scoregrounds/casual'] = array(
+    'title' => 'Casual',
+    'page callback' => 'coregrounds_leaderboard',
+    'page arguments' => array('casual'),
+    'access callback' => TRUE,
+    'file' => 'includes/coregrounds.pages.inc',
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 1,
+  );
+
+  $items['scoregrounds/coins'] = array(
+    'title' => 'Coins',
+    'page callback' => 'coregrounds_leaderboard',
+    'page arguments' => array('coins'),
+    'access callback' => TRUE,
+    'file' => 'includes/coregrounds.pages.inc',
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 2,
+  );
+
+  $items['scoregrounds/achievements'] = array(
+    'title' => 'Achievements',
+    'page callback' => 'coregrounds_leaderboard',
+    'page arguments' => array('achievements'),
+    'access callback' => TRUE,
+    'file' => 'includes/coregrounds.pages.inc',
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 3,
+  );
+
+  $items['statistics'] = array(
+    'title' => 'Statistics',
+    'page callback' => 'coregrounds_stats',
+    'page arguments' => array('pickrate'),
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/coregrounds.pages.inc',
+  );
+
+  $items['statistics/pick-rate'] = array(
+    'title' => 'Pick rate',
+    'weight' => 0,
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+  );
+
+  $items['statistics/win-rate'] = array(
+    'title' => 'Win rate',
+    'page callback' => 'coregrounds_stats',
+    'page arguments' => array('winrate'),
+    'access callback' => TRUE,
+    'file' => 'includes/coregrounds.pages.inc',
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 1,
+  );
+
+  $items['user/%user/matches'] = array(
+    'title' => 'Matches',
+    'page callback' => 'coregrounds_matches',
+    'page arguments' => array(1),
+    'access callback' => TRUE,
+    'type' => MENU_LOCAL_TASK,
+    'file' => 'includes/coregrounds.account.inc',
+    'weight' => 40,
+  );
+
+  $items['user/%user/achievements'] = array(
+    'title' => 'Achievements',
+    'page callback' => 'coregrounds_achievements',
+    'page arguments' => array(1),
+    'access callback' => TRUE,
+    'type' => MENU_LOCAL_TASK,
+    'file' => 'includes/coregrounds.account.inc',
+    'weight' => 50,
+  );
+
+  $items['match/%'] = array(
+    'title' => 'Match Summary',
+    'page callback' => 'coregrounds_match',
+    'page arguments' => array(1),
+    'access callback' => TRUE,
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'includes/coregrounds.pages.inc',
+  );
+
+  $items['admin/config/coregrounds'] = array(
+    'title' => 'Coregrounds',
+    'page callback' => 'system_admin_menu_block_page',
+    'file' => 'system.admin.inc',
+    'file path' => drupal_get_path('module', 'system'),
+    'access callback' => 'user_access',
+    'access arguments' => array('access administration pages'),
+    'type' => MENU_NORMAL_ITEM,
+    'weight' => -99,
+  );
+
+  $items['admin/config/coregrounds/version'] = array(
+    'title' => 'Coregrounds Settings',
+    'description' => '',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('coregrounds_settings_form'),
+    'access callback' => 'user_access',
+    'access arguments' => array('administer coregrounds'),
+    'file' => 'includes/coregrounds.admin.inc',
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  $items['admin/config/coregrounds/subsribers'] = array(
+    'title' => 'Download Newsletter Subscribers',
+    'description' => '',
+    'page callback' => 'coregrounds_newsletter_subscribers',
+    'access callback' => 'user_access',
+    'access arguments' => array('administer coregrounds'),
+    'file' => 'includes/coregrounds.admin.inc',
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  $items['admin/config/coregrounds/codes'] = array(
+    'title' => 'Promo Code Management',
+    'description' => '',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('coregrounds_code_management_form'),
+    'access callback' => 'user_access',
+    'access arguments' => array('administer coregrounds'),
+    'file' => 'includes/coregrounds.codes.inc',
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  $items['admin/config/coregrounds/season'] = array(
+    'title' => 'Season Finalization',
+    'description' => '',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('coregrounds_finalize_season_form'),
+    'access callback' => 'user_access',
+    'access arguments' => array('administer coregrounds'),
+    'file' => 'includes/coregrounds.season.inc',
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  $items['analytics'] = array(
+    'title' => 'Analytics',
+    'description' => '',
+    'page callback' => 'coregrounds_analytics',
+    'access callback' => 'user_access',
+    'access arguments' => array('access analytics'),
+    'file' => 'includes/admin.analytics.inc',
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  return $items;
+}
+
+/**
+ * Implementation of hook_menu_alter().
+ */
+function coregrounds_menu_alter(&$items) {
+  $items['user/%user'] = array(
+    'title' => 'Your Profile',
+    'page callback' => 'coregrounds_account',
+    'page arguments' => array(1),
+    'access callback' => TRUE,
+    'file' => 'sites/all/modules/coregrounds/includes/coregrounds.account.inc',
+  );
+  $items['user/%user/view']['title'] = 'Profile';
+  $items['user/%user/edit']['type'] = MENU_CALLBACK;
+  //change the /register to /create
+  $items['user/create'] = $items['user/register'];
+  $items['user/create']['type'] = MENU_CALLBACK;
+  unset($items['user/register']);
+  //we want to have our own taxonomy term page
+  $items['taxonomy/term/%taxonomy_term']['page callback'] = 'coregrounds_term_page';
+  $items['taxonomy/term/%taxonomy_term']['file'] = 'includes/coregrounds.pages.inc';
+  $items['taxonomy/term/%taxonomy_term']['file path'] = drupal_get_path('module','coregrounds');
+}
+
+/**
+ * Implementation of hook_perm().
+ */
+function coregrounds_permission() {
+  return array(
+    'administer coregrounds' => array(
+      'title' => 'Coregrounds Admin',
+    ),
+    'access analytics' => array(
+      'title' => 'Access analytics',
+    ),
+    'test coregrounds' => array(
+      'title' => 'Test Coregrounds',
+    ),
+    'spectate' => array(
+      'title' => 'Spectate',
+    ),
+    'play coregrounds' => array(
+      'title' => 'Play Coregrounds',
+    ),
+  );
+}
+
+/**
+ * Implementation of hook_init().
+ */
+function coregrounds_init() {
+  global $user;
+  if ($user->uid > 0) {
+    $user = user_load($user->uid);
+  } else {
+    $user->data = new stdClass();
+    $user->data->color = 312;
+  }
+}
+
+/**
+ * Implementation of hook_cron().
+ */
+function coregrounds_cron() {
+  if (variable_get('coregrounds_daily_update', '') != date("d.m.y")) {
+
+    // Reset the private match counter
+    db_query("UPDATE coregrounds_players SET pmatches = 0");
+
+    // Update the daily bonuses
+    db_query("UPDATE coregrounds_players SET daily_bonus = daily_bonus - 20 WHERE daily_match = 0");
+    db_query("UPDATE coregrounds_players SET daily_bonus = 0 WHERE daily_bonus < 0");
+    db_query("UPDATE coregrounds_players SET daily_match = 0");
+
+    // The daily update
+    $current = db_select('coregrounds_free_daily', 'f')
+      ->fields('f',array('unlid'))
+      ->execute()
+      ->fetchCol();
+
+    $cfg = coregrounds_config();
+
+    foreach ($cfg['factories'] as $item) {
+      if ($item['pickable'] && !in_array($item['id'], $current)) {
+        $add[$item['id']] = isset($item['minion']) ? 'm' : 't';
+      }
+
+      // Delete disabled items
+      if (!$item['pickable']) {
+        db_delete('coregrounds_free_daily')->condition('unlid', $item['id'])->execute();
+      }
+    }
+
+    foreach ($cfg['abilities'] as $item) {
+      if ($item['pickable'] && !in_array($item['id'], $current)) {
+        $add[$item['id']] = 'a';
+      }
+
+      // Delete disabled items
+      if (!$item['pickable']) {
+        db_delete('coregrounds_free_daily')->condition('unlid', $item['id'])->execute();
+      }
+    }
+
+    if ($add) {
+      // Reset all others to 7, so the new ones are free for exactly one week!
+      db_query("UPDATE coregrounds_free_daily SET days = 7");
+      // Add the new ones after
+      $new = db_insert('coregrounds_free_daily')->fields(array('unlid', 'type'));
+      foreach($add as $unlid => $type) {
+        $new->values(array(
+          'unlid' => $unlid,
+          'type' => $type,
+        ));
+      }
+      $new->execute();
+    }
+
+    // Update the days of the currently free ones
+    $dailies = coregrounds_get_free_dailies();
+    if ($dailies) {
+      db_query("UPDATE coregrounds_free_daily SET days = days+1 WHERE unlid IN (:unlids)",
+        array(':unlids' => $dailies));
+    }
+
+    variable_set('coregrounds_daily_update',date("d.m.y"));
+  }
+}
+
+/**
+ * Load a full match.
+ */
+function coregrounds_load_match($mid) {
+  $query = db_query("SELECT * FROM coregrounds_matches WHERE mid = :mid",array(':mid' => check_plain($mid)));
+  $match = $query->fetchObject();
+  if($match) {
+    //load players
+    foreach(db_query("SELECT * FROM coregrounds_matches_players WHERE mid = :mid",array(':mid' => $match->mid)) as $player) {
+      $match->players[$player->player] = $player;
+      $match->players[$player->player]->xp_total = 0;
+      $match->players[$player->player]->ability_uses = 0;
+      $match->players[$player->player]->upgrade_total = 0;
+    }
+    //load factories
+    foreach(db_query("SELECT * FROM coregrounds_matches_factories WHERE mid = :mid ORDER BY pickorder ASC",array(':mid' => $match->mid)) as $factory) {
+      $match->players[$factory->player]->factories[] = $factory;
+      $match->players[$factory->player]->xp_total += $factory->xp;
+      $match->players[$factory->player]->upgrade_total += $factory->upgrade_1 + $factory->upgrade_2 + $factory->upgrade_3;
+    }
+    //load abilities
+    foreach(db_query("SELECT * FROM coregrounds_matches_abilities WHERE mid = :mid ORDER BY pickorder ASC",array(':mid' => $match->mid)) as $ability) {
+      $match->players[$ability->player]->abilities[] = $ability;
+      $match->players[$ability->player]->ability_uses += $ability->uses;
+    }
+    return $match;
+  } else {
+    return FALSE;
+  }
+}
+
+/**
+ * Implementation of template_preprocess_html().
+ */
+function coregrounds_preprocess_html(&$vars) {
+  $vars['classes_array'][] = 'color-' . $vars['user']->data->color;
+}
+
+/**
+ * Implementation of template_preprocess_node().
+ */
+function coregrounds_preprocess_node(&$vars) {
+  //add meta description
+  if($vars['node']->type == 'news' &&  $vars['view_mode'] == 'full') {
+    if(isset($vars['node']->field_meta_description['und'][0]['value']) && !empty($vars['node']->field_meta_description['und'][0]['value'])) {
+      drupal_add_html_head(array('#tag' => 'meta', '#attributes' => array(
+        'name' => 'description',
+        'content' => $vars['node']->field_meta_description['und'][0]['value']
+      )), 'meta_description');
+    }
+  }
+}
+
+/**
+ * Implementation of hook_user_load().
+ */
+function coregrounds_user_load($users) { //DO WE NEED SEASONS AND UNLOCKS ON EVERY PAGE LOAD?
+  // Load player data
+  $q = 'SELECT * FROM {coregrounds_players} WHERE uid IN (:uids)';
+  $result = db_query($q, array(':uids' => array_keys($users)));
+  foreach ($result as $record) {
+    $users[$record->uid]->data = $record;
+  }
+  // Load current season
+  $q = 'SELECT * FROM {coregrounds_seasons} WHERE season = :season AND uid IN (:uids)';
+  $result = db_query($q, array(
+    ':season' => variable_get('coregrounds_current_season'),
+    ':uids' => array_keys($users)
+  ));
+  foreach ($result as $record) {
+    $users[$record->uid]->season = $record;
+  }
+  // Load previous seasons
+  $q = 'SELECT * FROM {coregrounds_seasons} WHERE season = :season AND uid IN (:uids)';
+  $result = db_query($q, array(
+    ':season' => 'TOTAL',
+    ':uids' => array_keys($users)
+  ));
+  foreach ($result as $record) {
+    $users[$record->uid]->previous = $record;
+  }
+  // Load this players unlocks
+  $result = db_query('SELECT * FROM {coregrounds_unlocks} WHERE uid IN (:uids)', array(':uids' => array_keys($users)));
+  foreach ($result as $record) {
+    $users[$record->uid]->unlocks[] = intval($record->unlid);
+  }
+}
+
+/**
+ * Implementation of hook_theme().
+ */
+function coregrounds_theme() {
+  return array(
+    'profile' => array(
+      'template' => 'profile',
+      'path' => drupal_get_path('module','coregrounds').'/templates',
+      'variables' => array('account' => NULL),
+    ),
+    'match' => array(
+      'template' => 'match',
+      'path' => drupal_get_path('module','coregrounds').'/templates',
+      'variables' => array('match' => NULL,'account' => NULL,'side' => NULL,'view_mode' => NULL),
+    ),
+    'achievement' => array(
+      'template' => 'achievement',
+      'path' => drupal_get_path('module','coregrounds').'/templates',
+      'variables' => array('achievement' => NULL,'progress' => NULL),
+    ),
+    'analytics' => array(
+      'template' => 'analytics',
+      'path' => drupal_get_path('module','coregrounds').'/templates',
+      'variables' => array('analytics' => NULL),
+    ),
+    'player_profile_form' => array(
+      'template' => 'player_profile_form',
+      'path' => drupal_get_path('module','coregrounds').'/templates',
+      'render element' => 'form',
+    ),
+    'player_register_form' => array(
+      'template' => 'player_register_form',
+      'path' => drupal_get_path('module','coregrounds').'/templates',
+      'render element' => 'form',
+    ),
+  );
+}
+
+/**
+ * Implementation of hook_mail().
+ */
+function coregrounds_mail($key,&$message,$params) {
+  switch($key) {
+    case 'notification':
+      $message['subject'] = $params['subject'];
+      $message['body'] = $params['body'];
+      break;
+  }
+}
+
+/**
+ * Implementation of hook_form_alter().
+ */
+function coregrounds_form_alter(&$form, &$form_state, $form_id) {
+
+  if(isset($form['#node']) && $form_id == $form['#node']->type .'_node_form') {
+    $form['#attributes']['class'][] = 'styled';
+    //$form['author']['#type'] = 'hidden';
+    $form['menu']['#type'] = 'hidden';
+    $form['revision_information']['#access'] = 0;
+    $form['redirect']['#access'] = 0;
+    //$form['options']['#type'] = 'hidden';
+    //$form['options']['status']['#value'] = 1;
+  }
+
+  if($form_id == 'user_login') {
+    $form['#attributes']['class'][] = 'styled';
+    $form['name']['#attributes']['placeholder'] = 'E-Mail';
+    $form['pass']['#attributes']['placeholder'] = 'Password';
+  }
+
+  if($form_id == 'user_pass') {
+    $form['#attributes']['class'][] = 'styled';
+  }
+
+  if($form_id == 'user_register_form') {
+    $form['#attributes']['class'][] = 'styled';
+    $form['#theme'] = 'player_register_form';
+    $form['terms'] = array(
+      '#type' => 'checkbox',
+      '#title' => 'I agree to the <a href="/terms-of-use">Terms of Use</a>.',
+      '#required' => 1,
+    );
+  }
+
+  if($form_id == 'user_profile_form') {
+    drupal_set_title('Account Settings');
+    $form['#theme'] = 'player_profile_form';
+    $form['#attributes']['class'][] = 'styled';
+  }
+}
+
+/**
+ * Simple submit handler redirecting to dashboard
+ */
+function coregrounds_validate_description_length($form, &$form_state) {
+  if(mb_strlen(str_replace("\r\n","\n",check_plain($form_state['values']['field_description']['und'][0]['value']))) > 200) {
+    form_set_error('field_description][und][0][value','The description cannot have more than 200 characters.');
+  }
+}
+
+/**
+ * Helper function getting the settings from the json file
+ */
+function coregrounds_get_settings() {
+  $settings = &drupal_static(__FUNCTION__);
+  if (!isset($settings)) {
+    $settings = json_decode(file_get_contents("../config.json"), true);
+  }
+  return $settings;
+}
+
+/**
+ * Helper function getting the currently freely available unlocks
+ */
+function coregrounds_get_free_dailies() {
+  $dailies = &drupal_static(__FUNCTION__);
+  if (!isset($dailies)) {
+    $dailies = array();
+    //get free tower factories
+    foreach(db_query('SELECT * FROM {coregrounds_free_daily} WHERE type = :type ORDER BY days ASC LIMIT 6', array(':type' => 't')) as $record) {
+      $dailies[] = (int) $record->unlid;
+    }
+    //get free minion factories
+    foreach(db_query('SELECT * FROM {coregrounds_free_daily} WHERE type = :type ORDER BY days ASC LIMIT 6', array(':type' => 'm')) as $record) {
+      $dailies[] = (int) $record->unlid;
+    }
+    //get free abilities
+    foreach(db_query('SELECT * FROM {coregrounds_free_daily} WHERE type = :type ORDER BY days ASC LIMIT 8', array(':type' => 'a')) as $record) {
+      $dailies[] = (int) $record->unlid;
+    }
+  }
+  return $dailies;
+}
+
+/**
+ * Helper function getting the current amount of unlockables present
+ */
+function coregrounds_get_unlock_count() {
+  $unlock_count = &drupal_static(__FUNCTION__);
+  if (!isset($unlock_count)) {
+    if ($cache = cache_get('unlock_count')) {
+      $unlock_count = $cache->data;
+    } else {
+      $settings = coregrounds_get_settings();
+      $unlock_count = count($settings['factories']) + count($settings['abilities']) + count($settings['emotes']) + count($settings['upgrades']) + count($settings['emblems']);
+      cache_set('unlock_count', $unlock_count, 'cache', time() + 86400);
+    }
+  }
+  return $unlock_count;
+}
+
+/**
+ * Helper function translating a color id into a hex value
+ */
+function coregrounds_get_color($colorId) {
+  if ($color = configQuery(['colors'], 'id', $colorId)) {
+    return $color['main'];
+  }
+  return '#000';
+}
+
+/**
+ * Helper function theming unit sprites
+ */
+function coregrounds_build_sprite($id, $hex) {
+  if ($id == 0) return '';
+  $sprite = '';
+  $item = configQuery(['factories', 'abilities'], 'id', $id);
+  $svg = file_get_contents(drupal_get_path('module', 'coregrounds') . "/units/$id.svg");
+  if ($item && $svg) {
+    if (!isset($item['tower']) && !isset($item['minion'])) {
+      $sprite .= '
+        <div class="sprite ability">
+          <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 33.867 33.867">
+            <g transform="translate(0 -263.133)" stroke-width="1.587" stroke-linejoin="round">
+              <circle cx="16.933" cy="280.067" r="14.275" fill="#222" stroke="#000"/>
+              <circle cx="16.933" cy="280.067" r="12.745" fill="none" stroke="#333"/>
+              <circle cx="16.933" cy="280.067" r="14.275" fill="' . $hex . '" fill-opacity="0.1"/>
+            </g>
+          </svg>
+          ' . str_ireplace("#1E70B5", $hex, $svg) . '
+        </div>';
+    } else if (isset($item['minion'])) {
+      $sprite .= '
+        <div class="sprite minion">
+          <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128"></svg>
+          ' . str_ireplace("#1E70B5", $hex, $svg) . '
+        </div>';
+    } else if (isset($item['tower'])) {
+      $sprite .= '
+        <div class="sprite tower">
+          <svg xmlns="http://www.w3.org/2000/svg" width="136.533" height="136.533" viewBox="0 0 128 128">
+            <defs><pattern id="a" width=".093" height=".093"><path fill-opacity=".3" stroke="#000" stroke-opacity=".8" d="M0 0h7v7H0z"/></pattern></defs>
+            <path d="M12 28l16-16h72l16 16v72l-16 16H28l-16-16z" fill="' . $hex . '"/>
+            <path fill="url(#a)" d="M12 952.362l16-16h72l16 16v72l-16 16H28l-16-16z" transform="translate(0 -924.362)"/>
+            <path d="M12 28l16-16h72l16 16v72l-16 16H28l-16-16z" fill="#111" fill-opacity=".65" stroke="#000" stroke-width="2"/>
+          </svg>
+          ' . str_ireplace("#1E70B5", $hex, $svg) . '
+        </div>';
+    }
+  }
+  return $sprite;
+}
+
+/**
+ * Helper function theming the play icon
+ */
+function coregrounds_get_emblem($account) {
+  if ($icon = configQuery('playerIcons', 'id', $account->data->emblem)) {
+    return '<img src="/player-icons/' . $icon['file'] . '" alt="' . $icon['name'] . '">';
+  }
+  return '';
+}
+
+/**
+ * Helper function theming name and emblem
+ */
+function coregrounds_match_type_string($matchType) {
+  $matchTypes = ['Bot', 'Casual', 'Ranked', 'Private', 'Random', 'Custom Bot'];
+  return $matchTypes[$matchType];
+}
+
+/**
+ * Helper function returning formatted time difference
+ */
+function coregrounds_how_long_ago($timestamp) {
+  $difference = time() - $timestamp;
+  if($difference <= 60) {
+    $return = t('a few seconds ago');
+  }
+  if($difference > 60 && $difference <= 3600) {
+    $amount = floor($difference/60);
+    $return = format_plural($amount,'one minute ago','@count minutes ago');
+  }
+  if($difference > 3600 && $difference <= 86400) {
+    $amount = floor($difference/3600);
+    $return = format_plural($amount,'one hour ago','@count hours ago');
+  }
+  if($difference > 86400 && $difference <= 604800) {
+    $amount = floor($difference/86400);
+    $return = format_plural($amount,'one day ago','@count days ago');
+  }
+  if($difference > 604800 && $difference <= 2592000) {
+    $amount = floor($difference/604800);
+    $return = format_plural($amount,'one week ago','@count weeks ago');
+  }
+  if($difference > 2592000 && $difference <= 31449600) {
+    $amount = floor($difference/2592000);
+    $return = format_plural($amount,'one month ago','@count months ago');
+  }
+  if($difference > 31449600) {
+    $amount = floor($difference/31449600);
+    $return = format_plural($amount,'one year ago','@count years ago');
+  }
+  return $return;
+}
+
+/**
+ * Helper function returning the current quarter
+ */
+function coregrounds_season_key() {
+  return date("Y",REQUEST_TIME).'-'.ceil(date("m",REQUEST_TIME)/3);
+}
+
+/**
+ * All achievements
+ */
+function coregrounds_get_achievements(&$account) {
+  $account->achievements = array();
+  $q = 'SELECT * FROM {coregrounds_achievements} WHERE uid = :uid';
+  foreach (db_query($q, array(':uid' => $account->uid)) as $achievement) {
+    $account->achievements[$achievement->aid] = $achievement;
+  }
+}
+
+/**
+ * Helper function cleaning an array
+ */
+function clean_array($array, $filter = 'check_plain') {
+  $clean = array();
+  foreach ($array as $key => $val) {
+    if (is_array($val)) {
+      $clean[$filter($key)] = clean_array($val, $filter);
+    }
+    else {
+      $clean[$filter($key)] = $filter($val);
+    }
+  }
+  return $clean;
+}

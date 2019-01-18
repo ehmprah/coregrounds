@@ -1,0 +1,27 @@
+achievements {
+  header {
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    text-transform: uppercase;
+  }
+  description {
+    display: flex;
+    padding: 1em;
+  }
+  progress-bar {
+    font-size: 1em;
+  }
+  li {
+    flex-direction: column;
+    &.completed {
+      display: none;
+    }
+  }
+  &.show-completed {
+    li.completed {
+      display: flex;
+    }
+  }
+}

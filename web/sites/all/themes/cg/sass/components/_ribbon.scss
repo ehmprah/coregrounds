@@ -1,0 +1,32 @@
+.ribbon {
+  position: absolute;
+  right: 1em;
+  top: -0.5em;
+  width: 80px;
+  z-index: 1;
+  background: #000;
+  text-transform: uppercase;
+  text-align: center;
+  color:#68B61B;
+}
+
+.ribbon:before {
+  content: "";
+  position: absolute;
+  right: -6px;
+  top: 0px;
+  border-bottom: 6px solid #000;
+  border-right: 6px solid transparent;
+}
+
+.ribbon:after {
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 15px #000 solid;
+  content: "";
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+}

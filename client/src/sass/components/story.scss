@@ -1,0 +1,39 @@
+.story-wrapper {
+  position: absolute;
+  left: 10vw;
+  right: 10vw;
+  top: 20vh;
+  bottom: 20vh;
+  color: #dbdbdb;
+
+  padding: 5vw;
+}
+
+.story-content {
+  overflow: hidden;
+  height: 100%;
+
+  font-size: 20px;
+  line-height: 32px;
+  text-align: justify;
+  white-space: pre-wrap;
+}
+
+span.blink {
+  opacity: 1;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

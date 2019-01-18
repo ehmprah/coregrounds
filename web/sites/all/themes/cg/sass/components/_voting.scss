@@ -1,0 +1,24 @@
+.rate-widget {
+  float: left;
+  margin-right: 20px;
+  .rate-number-up-down-rating {
+    float: none;
+    line-height: 20px;
+    padding: 0;
+  }
+  .rate-number-up-down-btn-up,
+  .rate-number-up-down-btn-down {
+    float: none;
+    width: 32px;
+    height: 32px;
+    background-size: 64px;
+    background-position: -16px 0;
+    margin:0;
+  }
+  .rate-number-up-down-btn-down {
+    background-position: -16px 32px;
+  }
+  .rate-info {
+    display:none;
+  }
+}

@@ -1,0 +1,32 @@
+input[type="submit"] {
+  font-weight:normal;
+  display: block;
+  padding: 9px 40px;
+  text-align:center;
+  font-size:16px;
+  text-transform: uppercase;
+  line-height: 20px;
+  border-radius:2px;
+  color:#fff !important;
+  border:none;
+  border-bottom: 3px solid rgba(0,0,0,0.4);
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  font-family: 'Orbitron';
+}
+
+.form-actions input[type="submit"] {
+  display:inline-block;
+}
+
+.form-actions input[type="submit"]:nth-child(n+2) {
+  margin-left:10px;
+}
+
+input[type="submit"]:hover {
+  cursor:pointer;
+  background:#1a1a1a;
+}
+
+form button {
+  padding: .75em 1em;
+}

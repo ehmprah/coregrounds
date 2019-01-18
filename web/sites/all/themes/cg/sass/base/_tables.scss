@@ -1,0 +1,26 @@
+/* tables */
+table { border: 1px solid #515151; width:100%; }
+thead th, th, th.active { background: #222; border-bottom: 1px solid #ccc; color: #6c6c6c; }
+td, th { padding: 4px 8px; vertical-align: middle; }
+th a, th a:link, th a:visited { text-decoration: none; }
+th a { display: block; }
+th a img { margin: 0 0 0 5px; }
+/* Odd & Even Styles */
+tr.even td { background: #444; }
+tr.odd td { background: #333; }
+td.active { border-left: 1px solid #515151; border-right: 1px solid #515151; }
+tr.even td.active { background: #e5e9ed; }
+tr.odd td.active { background: #f2f2f2; }
+td ul.links { margin-bottom: 0; }
+
+tr.even.selected td,
+tr.odd.selected td {
+  background:#FFDB1B;
+}
+
+.gsc-control-wrapper-cse {
+  * { box-sizing: content-box; }
+  table,tbody,tr,th,td {
+    border:none;
+  }
+}

@@ -1,0 +1,43 @@
+profile-data {
+  ul li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+  }
+  img {
+    max-width: 80px;
+  }
+  span.huge {
+    margin: .5em;
+  }
+  .season {
+    color: #666;
+  }
+  label {
+    font-size: 16px;
+  }
+}
+
+.rank {
+  display: flex;
+  div {
+    flex: 1;
+    width: 10px;
+    height: 10px;
+    margin: 3px;
+    border: 2px solid #000;
+    background: #222;
+    border-radius: 50%;
+  }
+}
+
+.rank-1 div:nth-child(-n+1) { background-color: #dbdbdb; }
+.rank-2 div:nth-child(-n+2) { background-color: #dbdbdb; }
+.rank-3 div:nth-child(-n+3) { background-color: #dbdbdb; }
+.rank-4 div:nth-child(-n+4) { background-color: #dbdbdb; }
+.rank-5 div:nth-child(-n+5) { background-color: #dbdbdb; }
+
+// TODO rework rank into progress-dots
+// TODO active ones should have the player color here!

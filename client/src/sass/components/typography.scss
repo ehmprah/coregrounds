@@ -1,0 +1,108 @@
+@font-face {
+  font-family: 'Exo 2';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Exo 2'), local('Exo2-Regular'), url(fonts/exo2.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
+}
+
+body {
+  font: 20px/30px 'Exo 2';
+  color:#DBDBDB;
+}
+
+a,
+a:visited,
+a.active,
+a:active,
+a:hover,
+a:visited:hover,
+a.active:hover,
+a:active:hover {
+  text-decoration:none;
+  transition: all .2s;
+  cursor: inherit;
+  border-bottom: 1px solid;
+}
+
+a:hover,
+a:visited:hover,
+a.active:hover,
+a:active:hover {
+  border-color: transparent;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 1.5em 0 .5em 0;
+  text-transform: uppercase;
+  line-height: 1.5em;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+h1,
+h2 {
+  font-size: 2em;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1.5em;
+}
+
+h2.first,
+h3.first,
+h4.first,
+h5.first,
+h6.first {
+  margin-top: 0;
+}
+
+span.huge {
+  font-size: 2em;
+}
+
+.text-big {
+  font-size: 1.5em;
+}
+
+.text-huge {
+  font-size: 2em;
+}
+
+p {
+  margin:0 0 1em 0;
+}
+
+ol {
+  margin: 2em;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-gold {
+  color: gold;
+}
+
+.text-pink {
+  color: deeppink;
+}
+
+.text-gray {
+  color: #888;
+}

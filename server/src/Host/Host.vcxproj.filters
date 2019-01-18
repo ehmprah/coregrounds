@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Host">
+      <UniqueIdentifier>{0254289d-c979-4091-9340-e68e0fcf8e8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="others">
+      <UniqueIdentifier>{a4a473d7-5a3d-4f21-b116-cfc2bb53fdf2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="network">
+      <UniqueIdentifier>{fd08bb24-8a9b-40b3-84f0-d8bd04fed493}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Session">
+      <UniqueIdentifier>{fcb424d4-cdbe-4609-a9ba-e54fbfa3e5b7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Host\stdafx.cpp">
+      <Filter>others</Filter>
+    </ClCompile>
+    <ClCompile Include="Host\Host.cpp">
+      <Filter>Host</Filter>
+    </ClCompile>
+    <ClCompile Include="Host\Config.cpp" />
+    <ClCompile Include="Host\MatchMgr.cpp" />
+    <ClCompile Include="Host\network\Connection.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="Host\network\Device.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="Host\network\Defines.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="Host\session\Session.cpp">
+      <Filter>Session</Filter>
+    </ClCompile>
+    <ClCompile Include="Host\TimerFactory.cpp" />
+    <ClCompile Include="Host\session\Handler.cpp">
+      <Filter>Session</Filter>
+    </ClCompile>
+    <ClCompile Include="Host\session\Factory.cpp">
+      <Filter>Session</Filter>
+    </ClCompile>
+    <ClCompile Include="Host\Log.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Host\stdafx.h">
+      <Filter>others</Filter>
+    </ClInclude>
+    <ClInclude Include="Host\Host.hpp">
+      <Filter>Host</Filter>
+    </ClInclude>
+    <ClInclude Include="Host\Config.hpp" />
+    <ClInclude Include="Host\MatchMgr.hpp" />
+    <ClInclude Include="Host\network\Device.hpp">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="Host\network\Defines.hpp">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="Host\session\Session.hpp">
+      <Filter>Session</Filter>
+    </ClInclude>
+    <ClInclude Include="Host\SynchronizedValue.hpp" />
+    <ClInclude Include="Host\TimerFactory.hpp" />
+    <ClInclude Include="Host\DurationalObject.hpp" />
+    <ClInclude Include="Host\session\Handler.hpp">
+      <Filter>Session</Filter>
+    </ClInclude>
+    <ClInclude Include="Host\session\Factory.hpp">
+      <Filter>Session</Filter>
+    </ClInclude>
+    <ClInclude Include="Host\Log.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Host\network\Connection.hpp">
+      <Filter>network</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>

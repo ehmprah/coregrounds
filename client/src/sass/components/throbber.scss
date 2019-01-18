@@ -1,0 +1,25 @@
+throbber {
+  background-image: url(img/throbber.svg);
+  background-position: top center;
+  background-size: 5em;
+  background-repeat: no-repeat;
+  min-width: 6em;
+  min-height: 6em;
+  display: block;
+  margin: 3em 0;
+  text-align: center;
+  padding-top: 6em;
+  &.hidden {
+    display:none;
+  }
+  &.error {
+    background-image: url(img/error.svg);
+  }
+}
+
+.throbbing {
+  background-image: url(img/throbber.svg);
+  background-position: center center;
+  background-size: 5em;
+  background-repeat: no-repeat;
+}

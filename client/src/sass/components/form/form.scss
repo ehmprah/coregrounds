@@ -1,0 +1,25 @@
+@import "elements/checkbox.scss";
+@import "elements/radio.scss";
+@import "elements/range.scss";
+@import "elements/select.scss";
+@import "elements/submit.scss";
+@import "elements/textarea.scss";
+
+.form-item {
+  margin: 0 0 2em 0;
+  .description {
+    font-size: 0.9rem;
+    color: #888;
+  }
+}
+
+.form-actions {
+  display: flex;
+  button {
+    margin-right: 1em;
+  }
+}
+
+label {
+  cursor: inherit;
+}

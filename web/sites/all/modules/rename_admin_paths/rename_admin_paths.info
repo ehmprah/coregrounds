@@ -1,0 +1,13 @@
+; $Id;
+name = Rename Admin Paths
+description = Rename admin path /admin/.. and /user/.. to /something/..
+core = 7.x
+package = Administration
+configure = admin/config/user-interface/rename-admin-paths
+
+; Information added by Drupal.org packaging script on 2016-11-08
+version = "7.x-2.3"
+core = "7.x"
+project = "rename_admin_paths"
+datestamp = "1478598847"
+

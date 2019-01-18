@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Game">
+      <UniqueIdentifier>{6ad860a6-82e4-4658-a688-d43bc04a5121}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entity">
+      <UniqueIdentifier>{34a23f33-db6c-407b-90f3-bc3205302fee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Map">
+      <UniqueIdentifier>{556e0aa4-e3a3-4041-b57c-ce1309a4a650}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="controller">
+      <UniqueIdentifier>{3b07d1fb-c111-437a-b7ca-eeb32a31a251}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Spell">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h</Extensions>
+      <ParseFiles>true</ParseFiles>
+    </Filter>
+    <Filter Include="Entity\Unit">
+      <UniqueIdentifier>{7d6368f8-384d-4d6b-afb3-47f02443d185}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entity\Unit\Component">
+      <UniqueIdentifier>{44a0fbff-461b-4569-9e0d-53d0f113910a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entity\Device">
+      <UniqueIdentifier>{c8dd65c9-4842-44f7-9152-531fb1cb7509}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Phase">
+      <UniqueIdentifier>{29fe59d3-492d-4df3-89c2-61f947af2bf4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Game\GameDependencies.cpp" />
+    <ClCompile Include="Game\GameStatistics.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Match.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\controller\PlayerController.cpp">
+      <Filter>controller</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entity\Level.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entity\Team.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Map\BuildingMap.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Map\ColliderMap.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Map\RoutingMap.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Map\TileMap.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Map\VisibilityMap.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Spell\Aura.cpp">
+      <Filter>Spell</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Spell\AuraEffects.cpp">
+      <Filter>Spell</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Spell\Carrier.cpp">
+      <Filter>Spell</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Spell\Spell.cpp">
+      <Filter>Spell</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Spell\SpellEffects.cpp">
+      <Filter>Spell</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Spell\SpellManager.cpp">
+      <Filter>Spell</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Spell\TargetFinder.cpp">
+      <Filter>Spell</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entity\Attackable.cpp">
+      <Filter>Entity\Unit\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entity\CollisionDetector.cpp">
+      <Filter>Entity\Unit\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entity\LifeLink.cpp">
+      <Filter>Entity\Unit\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entity\MovementGenerator.cpp">
+      <Filter>Entity\Unit\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entity\Locatable.cpp">
+      <Filter>Entity\Unit\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entity\Movable.cpp">
+      <Filter>Entity\Unit\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entity\World.cpp">
+      <Filter>Entity\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\stdafx.cpp" />
+    <ClCompile Include="Game\Spell\AuraEvent.cpp">
+      <Filter>Spell</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\controller\AIController.cpp">
+      <Filter>controller</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entity\GUIDManager.cpp">
+      <Filter>Entity\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\DataReader.cpp" />
+    <ClCompile Include="Game\Spell\Destination.cpp">
+      <Filter>Spell</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Shape.cpp" />
+    <ClCompile Include="Game\Map\PathMap.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\controller\Handler.cpp">
+      <Filter>controller</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\VisualCollector.cpp" />
+    <ClCompile Include="Game\controller\InputHandler.cpp">
+      <Filter>controller</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entity\Entity.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entity\Participant.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entity\Castable.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entity\Wall.cpp">
+      <Filter>Entity\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entity\Unit.cpp">
+      <Filter>Entity\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entity\Trigger.cpp">
+      <Filter>Entity\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entity\Tower.cpp">
+      <Filter>Entity\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entity\Projectile.cpp">
+      <Filter>Entity\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entity\Minion.cpp">
+      <Filter>Entity\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entity\Core.cpp">
+      <Filter>Entity\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entity\Factory.cpp">
+      <Filter>Entity\Device</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entity\Device.cpp">
+      <Filter>Entity\Device</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entity\Ability.cpp">
+      <Filter>Entity\Device</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\TargetPreferenceUtil.cpp" />
+    <ClCompile Include="Game\Entity\UnitState.cpp">
+      <Filter>Entity\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Phase\AbstractGamePhase.cpp">
+      <Filter>Game\Phase</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Phase\GamePhaseNormal.cpp">
+      <Filter>Game\Phase</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Phase\PickPhase.cpp">
+      <Filter>Game\Phase</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Phase\FinalizePhase.cpp">
+      <Filter>Game\Phase</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Phase\Serialize.cpp">
+      <Filter>Game\Phase</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Phase\Patching.cpp">
+      <Filter>Game\Phase</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Game\GameDependencies.hpp" />
+    <ClInclude Include="Game\GameStatistics.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Match.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\controller\AIController.hpp">
+      <Filter>controller</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\controller\ControllerBase.hpp">
+      <Filter>controller</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\controller\PlayerController.hpp">
+      <Filter>controller</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entity\Level.hpp">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entity\Team.hpp">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Map\BuildingMap.hpp">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Map\ColliderMap.hpp">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Map\GridMap.hpp">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Map\RoutingMap.hpp">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Map\TileMap.hpp">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Map\VisibilityMap.hpp">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Spell\Aura.hpp">
+      <Filter>Spell</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Spell\AuraEffects.hpp">
+      <Filter>Spell</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Spell\Carrier.hpp">
+      <Filter>Spell</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Spell\Spell.hpp">
+      <Filter>Spell</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Spell\SpellEffects.hpp">
+      <Filter>Spell</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Spell\SpellManager.hpp">
+      <Filter>Spell</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Spell\TargetFinder.hpp">
+      <Filter>Spell</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entity\Attackable.hpp">
+      <Filter>Entity\Unit\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entity\CollisionDetector.hpp">
+      <Filter>Entity\Unit\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entity\LifeLink.hpp">
+      <Filter>Entity\Unit\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entity\MovementGenerator.hpp">
+      <Filter>Entity\Unit\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entity\Movable.hpp">
+      <Filter>Entity\Unit\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entity\Locatable.hpp">
+      <Filter>Entity\Unit\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entity\World.hpp">
+      <Filter>Entity\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\stdafx.h" />
+    <ClInclude Include="Game\Spell\AuraEvent.hpp">
+      <Filter>Spell</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Spell\AuraFwd.hpp">
+      <Filter>Spell</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entity\DamageInfo.hpp">
+      <Filter>Entity\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entity\GUIDManager.hpp">
+      <Filter>Entity\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\DataReader.hpp" />
+    <ClInclude Include="Game\Spell\Destination.hpp">
+      <Filter>Spell</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\PropertyHelper.hpp" />
+    <ClInclude Include="Game\Shape.hpp" />
+    <ClInclude Include="Game\Map\PathMap.hpp">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\controller\Handler.hpp">
+      <Filter>controller</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\VisualCollector.hpp" />
+    <ClInclude Include="Game\controller\InputHandler.hpp">
+      <Filter>controller</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entity\Wall.hpp">
+      <Filter>Entity\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entity\Entity.hpp">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entity\Castable.hpp">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entity\Participant.hpp">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entity\Unit.hpp">
+      <Filter>Entity\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entity\Trigger.hpp">
+      <Filter>Entity\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entity\Tower.hpp">
+      <Filter>Entity\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entity\Projectile.hpp">
+      <Filter>Entity\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entity\Minion.hpp">
+      <Filter>Entity\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entity\Core.hpp">
+      <Filter>Entity\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entity\Factory.hpp">
+      <Filter>Entity\Device</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entity\Device.hpp">
+      <Filter>Entity\Device</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entity\Ability.hpp">
+      <Filter>Entity\Device</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\TargetPreferenceUtil.hpp" />
+    <ClInclude Include="Game\CoreInclude.hpp" />
+    <ClInclude Include="Game\Entity\UnitState.hpp">
+      <Filter>Entity\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Phase\AbstractGamePhase.hpp">
+      <Filter>Game\Phase</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Phase\GamePhaseNormal.hpp">
+      <Filter>Game\Phase</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Phase\PhaseInterface.hpp">
+      <Filter>Game\Phase</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Phase\PickPhase.hpp">
+      <Filter>Game\Phase</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Phase\FinalizePhase.hpp">
+      <Filter>Game\Phase</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Phase\Serialize.hpp">
+      <Filter>Game\Phase</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Phase\Patching.hpp">
+      <Filter>Game\Phase</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

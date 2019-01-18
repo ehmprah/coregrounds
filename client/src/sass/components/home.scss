@@ -1,0 +1,250 @@
+// The button to toggle the dashboard
+#home {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  width: 40px;
+  z-index: 5;
+  display: none;
+  &.active {
+    display: block;
+  }
+  svg {
+    width: 100%;
+    height: auto;
+    fill: #dbdbdb;
+  }
+}
+
+// Base styles
+.tile-news,
+.tile-video,
+.tile-free-picks {
+  position: relative;
+  label {
+    text-transform: uppercase;
+    position: absolute;
+    padding: 5px 10px;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.75);
+        z-index: 1;
+  }
+}
+
+.tile-free-picks sprite.tower svg:last-child,
+.tile-free-picks sprite.minion svg:last-child {
+  filter: drop-shadow(0 0 1px #000);
+}
+
+.tile-news,
+.tile-video {
+  background-position: center;
+  background-size: 100%;
+  transition: filter .2s;
+  filter: saturate(0.75) brightness(0.75);
+  &:hover {
+    filter: saturate(1) brightness(1);
+  }
+}
+
+.video-play {
+  width: 100%;
+  height: 100%;
+  padding: 1em;
+  svg {
+    fill: #dbdbdb;
+    width: 32px;
+  }
+}
+
+.player-summary {
+  background: #000;
+  .player-icon {
+    max-width: 64px;
+    border: 2px solid #000;
+    img {
+      display:block;
+    }
+  }
+  .player-name {
+    color: #fff;
+    text-align: center;
+  }
+}
+
+.credits-summary {
+  .bonus-title {
+    text-transform: uppercase;
+  }
+  .bonus-amount {
+    &:before {
+      content: '+';
+    }
+    &:after {
+      content: '%';
+    }
+  }
+  .bonus-duration {
+    font-size: 0.9em;
+    color: #999;
+  }
+}
+
+.currency-summary {
+  background: #000;
+}
+
+.achievements-summary {
+  justify-content: space-around;
+  background: #000;
+  flex-direction: column;
+  padding: .75em;
+  progress-bar {
+    max-width: 160px;
+  }
+}
+
+tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  button {
+    min-width: 160px;
+    justify-content: center;
+    position: relative;
+    .external {
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      width: 16px;
+      fill: #9a9a9a;
+    }
+    .icon svg {
+      width: 32px;
+      margin: 0 1em 0 0;
+    }
+    &.fit .icon svg {
+      margin: 0 0 .25em 0;
+    }
+  }
+  currency {
+    min-width: 120px;
+  }
+}
+
+.credits-summary {
+  flex-direction: column;
+  align-items: flex-start;
+  &-overview {
+    width: 100%;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: #000;
+  }
+  &-details {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    background: #0c0c0c;
+    flex-wrap: wrap;
+    line-height: 1.5em;
+    bonus {
+      width: 50%;
+      text-align: center;
+      margin: 1em 0;
+    }
+  }
+}
+
+.player-summary {
+  flex-wrap: wrap;
+  padding: 32px;
+  .player-info {
+    flex-grow: 2;
+  }
+  .player-icon {
+    margin-right: 32px;
+  }
+}
+
+.tile-free-picks {
+  display: flex;
+  align-items: inherit;
+  .wrap {
+    width: 100%;
+  }
+  sprite {
+    width: 18%;
+    float: left;
+    margin: 1.5% 1% 0;
+    svg {
+      display: block;
+    }
+  }
+}
+
+// The grid for desktop versions
+@media (min-width: 1260px) {
+
+  grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-auto-rows: 110px;
+    grid-gap: 10px;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  tile {
+    grid-row: span 1;
+    grid-column: span 1;
+  }
+
+  .player-summary {
+    grid-row: 1;
+    grid-column: 1/3;
+  }
+
+  .credits-summary {
+    grid-row: 1/4;
+    grid-column: 3/5;
+  }
+
+  .tile-news {
+    grid-row: 4/6;
+    grid-column: 5/7;
+  }
+
+  .currency-summary {
+    justify-content: center;
+  }
+
+  .tile-free-picks {
+    grid-row: 1/4;
+    grid-column: 5/7;
+  }
+
+  .tile-supporter {
+    grid-column: span 2;
+  }
+
+}
+
+@media (max-width: 1260px) {
+  grid {
+    tile {
+      display: flex;
+      min-height: 100px;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+@media (max-height: 768px) {
+  grid {
+    grid-auto-rows: 100px;
+  }
+}

@@ -1,0 +1,46 @@
+sprite {
+  display:block;
+  svg {
+    display: block;
+    margin: auto;
+  }
+  &.ban {
+    filter: saturate(0);
+  }
+}
+
+sprite.tower,
+sprite.minion,
+sprite.ability {
+  position: relative;
+  display: flex;
+  align-items: center;
+  svg {
+    flex: 1;
+  }
+  svg:first-child {
+    width: 100%;
+  }
+  svg:last-child {
+    max-width: 66%;
+    position: absolute;
+    left: 17%;
+    top: 17%;
+  }
+  &.tiny {
+    max-width: 64px;
+  }
+}
+
+sprite.tower,
+sprite.minion {
+  svg:last-child {
+    filter: drop-shadow(0 0 2px #000);
+  }
+}
+
+sprite.minion svg:last-child {
+  max-width: 62%;
+  left: 19%;
+  top: 19%;
+}

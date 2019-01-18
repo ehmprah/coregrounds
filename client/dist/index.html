@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>COREGROUNDS</title>
+    <link type="text/css" rel="stylesheet" href="styles.css" media="all" />
+    <script type="text/javascript" src="coregrounds.js"></script>
+    <script type="text/javascript" src="window.js"></script>
+  </head>
+  <script>
+    // Steam Integration
+    greenworks = require('./lib/greenworks/greenworks.js');
+    // Open links in new window
+    const win = nw.Window.get();
+    const defaultBrowser = (frame, url, policy) => {
+      policy.ignore();
+      nw.Shell.openExternal(url);
+    };
+    win.on('new-win-policy', defaultBrowser);
+    win.on('navigation', defaultBrowser);
+    // Keybord shortcuts
+    document.addEventListener('keyup', (e) => {
+      // Toggle fullscreen with F11
+      if (e.keyCode === 122) toggleFullscreen();
+    }, false);
+    function toggleFullscreen() {
+      win.toggleFullscreen();
+      win.resizeTo(1280, 800);
+    }
+  </script>
+  <body class="color-2408 background-2106">
+    <div id="game">
+      <div id="wrapper">
+        <canvas id="coregrounds"></canvas>
+      </div>
+    </div>
+    <screen id="layer-0" class="active">
+      <throbber>LOADING</throbber>
+    </screen>
+    <screen id="layer-1"></screen>
+  </body>
+</html>

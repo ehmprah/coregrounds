@@ -1,0 +1,38 @@
+/* messages */
+div.messages {
+  position:relative;
+  padding:15px 90px 15px 15px;
+  color: #fff;
+  margin:0 0 10px 0;
+ .credit-icon {
+    vertical-align: top;
+    margin:0 2px;
+  }
+  a.dismiss {
+    position:absolute;
+    right:5px;
+    bottom:5px;
+  }
+  em.placeholder {
+    font-style: normal;
+    color: #ff6700;
+  }
+}
+
+div.status {
+  color: #fff;
+}
+
+div.warning {
+  color: #fff;
+  border-image-source: url(/sites/default/files/box/box_307.svg);
+  background: url(/sites/default/files/box/box_307.svg) no-repeat center center;
+  background-size: 400%;
+}
+
+div.error {
+  color: #fff;
+  border-image-source: url(/sites/default/files/box/box_310.svg);
+  background: url(/sites/default/files/box/box_310.svg) no-repeat center center;
+  background-size: 400%;
+}

@@ -1,0 +1,54 @@
+.forums {
+  a,span {
+    display:block;
+    padding:5px 0;
+  }
+}
+
+article.featured {
+  position: relative;
+  img {
+    display:block;
+  }
+  .title-overlay {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    padding: 15px;
+  }
+}
+
+article.boxed-teaser {
+  .comment-count {
+    float:right;
+    text-align: center;
+  }
+}
+
+@media (min-width: 960px) {
+  article.boxed-teaser {
+    .content {
+      margin-right: 80px;
+      word-break: break-word;
+    }
+  }
+  article.boxed-teaser.voting {
+    .content {
+      margin-left: 52px;
+    }
+  }
+}
+
+span.todo {
+  color: #F26310;
+}
+
+#comments {
+  margin:0;
+}
+
+.indented {
+  margin-left: 40px;
+}

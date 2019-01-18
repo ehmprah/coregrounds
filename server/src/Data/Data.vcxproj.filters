@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Data\DataStringHelper.cpp" />
+    <ClCompile Include="Data\Ability.cpp" />
+    <ClCompile Include="Data\Aura.cpp" />
+    <ClCompile Include="Data\Device.cpp" />
+    <ClCompile Include="Data\Factory.cpp" />
+    <ClCompile Include="Data\Spell.cpp" />
+    <ClCompile Include="Data\Unit.cpp" />
+    <ClCompile Include="Data\Game.cpp" />
+    <ClCompile Include="Data\AbstractReader.cpp" />
+    <ClCompile Include="Data\Shape.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Data\DataStringHelper.hpp" />
+    <ClInclude Include="Data\DataFwd.hpp" />
+    <ClInclude Include="Data\Ability.hpp" />
+    <ClInclude Include="Data\Aura.hpp" />
+    <ClInclude Include="Data\Device.hpp" />
+    <ClInclude Include="Data\Factory.hpp" />
+    <ClInclude Include="Data\Spell.hpp" />
+    <ClInclude Include="Data\Unit.hpp" />
+    <ClInclude Include="Data\Others.hpp" />
+    <ClInclude Include="Data\Game.hpp" />
+    <ClInclude Include="Data\Property.hpp" />
+    <ClInclude Include="Data\AbstractReader.hpp" />
+    <ClInclude Include="Data\PropertyDefines.hpp" />
+    <ClInclude Include="Data\Shape.hpp" />
+    <ClInclude Include="Data\AiStrategy.hpp" />
+  </ItemGroup>
+</Project>

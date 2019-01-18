@@ -1,0 +1,84 @@
+ul.matches {
+  li {
+    display: flex;
+    margin: 1%;
+    text-transform: uppercase;
+  }
+  span.won {
+    background: rgb(30, 120, 30);
+  }
+  span.lost {
+    background: rgb(120, 30, 30);
+  }
+  span, currency {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  sprites {
+    flex: 2;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 48%;
+    sprite {
+      width: 60px;
+      height: 60px;
+      margin: 5px 0px;
+    }
+  }
+}
+
+match {
+  player {
+    margin: 0 0 .25em 0;
+    name {
+      flex-grow: 2;
+      text-align: center;
+    }
+    currency {
+      flex-grow: 1;
+      justify-content: center;
+    }
+    xp {
+      flex-grow: 1;
+    }
+  }
+  .match-stat {
+    flex-direction: column;
+    padding: 1em;
+    align-items: center;
+    label {
+      margin-bottom: 0.25em;
+    }
+    data {
+      font-size: 1.2em;
+      white-space: nowrap;
+    }
+  }
+  .factory-info {
+    padding: 1em 0;
+    sprite {
+      width: 64px;
+      margin: auto;
+    }
+    upgrade {
+      margin: auto;
+      text-align: center;
+    }
+  }
+  picks {
+    margin: 1%;
+    sprite {
+      display: block;
+      width: 10%;
+    }
+  }
+}
+
+@media (max-width: 1260px) {
+  match ul li {
+    display: flex;
+  }
+}

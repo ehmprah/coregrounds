@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Deployment|x64">
+      <Configuration>Deployment</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="LocalDebug|x64">
+      <Configuration>LocalDebug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="LocalRelease|x64">
+      <Configuration>LocalRelease</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Game\controller\AIController.cpp" />
+    <ClCompile Include="Game\controller\Handler.cpp" />
+    <ClCompile Include="Game\controller\InputHandler.cpp" />
+    <ClCompile Include="Game\controller\PlayerController.cpp" />
+    <ClCompile Include="Game\DataReader.cpp" />
+    <ClCompile Include="Game\Entity\Ability.cpp" />
+    <ClCompile Include="Game\Entity\Attackable.cpp" />
+    <ClCompile Include="Game\Entity\Castable.cpp" />
+    <ClCompile Include="Game\Entity\CollisionDetector.cpp" />
+    <ClCompile Include="Game\Entity\Core.cpp" />
+    <ClCompile Include="Game\Entity\Device.cpp" />
+    <ClCompile Include="Game\Entity\Entity.cpp" />
+    <ClCompile Include="Game\Entity\Factory.cpp" />
+    <ClCompile Include="Game\Entity\GUIDManager.cpp" />
+    <ClCompile Include="Game\Entity\Level.cpp" />
+    <ClCompile Include="Game\Entity\LifeLink.cpp" />
+    <ClCompile Include="Game\Entity\Locatable.cpp" />
+    <ClCompile Include="Game\Entity\Minion.cpp" />
+    <ClCompile Include="Game\Entity\Movable.cpp" />
+    <ClCompile Include="Game\Entity\MovementGenerator.cpp" />
+    <ClCompile Include="Game\Entity\Participant.cpp" />
+    <ClCompile Include="Game\Entity\Projectile.cpp" />
+    <ClCompile Include="Game\Entity\Team.cpp" />
+    <ClCompile Include="Game\Entity\Tower.cpp" />
+    <ClCompile Include="Game\Entity\Trigger.cpp" />
+    <ClCompile Include="Game\Entity\Unit.cpp" />
+    <ClCompile Include="Game\Entity\UnitState.cpp" />
+    <ClCompile Include="Game\Entity\Wall.cpp" />
+    <ClCompile Include="Game\Entity\World.cpp" />
+    <ClCompile Include="Game\GameDependencies.cpp" />
+    <ClCompile Include="Game\GameStatistics.cpp" />
+    <ClCompile Include="Game\Map\BuildingMap.cpp" />
+    <ClCompile Include="Game\Map\ColliderMap.cpp" />
+    <ClCompile Include="Game\Map\PathMap.cpp" />
+    <ClCompile Include="Game\Map\RoutingMap.cpp" />
+    <ClCompile Include="Game\Map\TileMap.cpp" />
+    <ClCompile Include="Game\Map\VisibilityMap.cpp" />
+    <ClCompile Include="Game\Match.cpp" />
+    <ClCompile Include="Game\Phase\AbstractGamePhase.cpp" />
+    <ClCompile Include="Game\Phase\FinalizePhase.cpp" />
+    <ClCompile Include="Game\Phase\GamePhaseNormal.cpp" />
+    <ClCompile Include="Game\Phase\Patching.cpp" />
+    <ClCompile Include="Game\Phase\PickPhase.cpp" />
+    <ClCompile Include="Game\Phase\Serialize.cpp" />
+    <ClCompile Include="Game\Shape.cpp" />
+    <ClCompile Include="Game\Spell\Aura.cpp" />
+    <ClCompile Include="Game\Spell\AuraEffects.cpp" />
+    <ClCompile Include="Game\Spell\AuraEvent.cpp" />
+    <ClCompile Include="Game\Spell\Carrier.cpp" />
+    <ClCompile Include="Game\Spell\Spell.cpp" />
+    <ClCompile Include="Game\Spell\SpellEffects.cpp" />
+    <ClCompile Include="Game\Spell\SpellManager.cpp" />
+    <ClCompile Include="Game\Spell\Destination.cpp" />
+    <ClCompile Include="Game\Spell\TargetFinder.cpp" />
+    <ClCompile Include="Game\stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='LocalRelease|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='LocalDebug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Deployment|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Game\TargetPreferenceUtil.cpp" />
+    <ClCompile Include="Game\VisualCollector.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Game\controller\AIController.hpp" />
+    <ClInclude Include="Game\controller\ControllerBase.hpp" />
+    <ClInclude Include="Game\controller\Handler.hpp" />
+    <ClInclude Include="Game\controller\InputHandler.hpp" />
+    <ClInclude Include="Game\controller\PlayerController.hpp" />
+    <ClInclude Include="Game\CoreInclude.hpp" />
+    <ClInclude Include="Game\DataReader.hpp" />
+    <ClInclude Include="Game\Entity\Ability.hpp" />
+    <ClInclude Include="Game\Entity\Attackable.hpp" />
+    <ClInclude Include="Game\Entity\Castable.hpp" />
+    <ClInclude Include="Game\Entity\CollisionDetector.hpp" />
+    <ClInclude Include="Game\Entity\Core.hpp" />
+    <ClInclude Include="Game\Entity\DamageInfo.hpp" />
+    <ClInclude Include="Game\Entity\Device.hpp" />
+    <ClInclude Include="Game\Entity\Entity.hpp" />
+    <ClInclude Include="Game\Entity\Factory.hpp" />
+    <ClInclude Include="Game\Entity\GUIDManager.hpp" />
+    <ClInclude Include="Game\Entity\Level.hpp" />
+    <ClInclude Include="Game\Entity\LifeLink.hpp" />
+    <ClInclude Include="Game\Entity\Locatable.hpp" />
+    <ClInclude Include="Game\Entity\Minion.hpp" />
+    <ClInclude Include="Game\Entity\Movable.hpp" />
+    <ClInclude Include="Game\Entity\MovementGenerator.hpp" />
+    <ClInclude Include="Game\Entity\Participant.hpp" />
+    <ClInclude Include="Game\Entity\Projectile.hpp" />
+    <ClInclude Include="Game\Entity\Team.hpp" />
+    <ClInclude Include="Game\Entity\Tower.hpp" />
+    <ClInclude Include="Game\Entity\Trigger.hpp" />
+    <ClInclude Include="Game\Entity\Unit.hpp" />
+    <ClInclude Include="Game\Entity\UnitState.hpp" />
+    <ClInclude Include="Game\Entity\Wall.hpp" />
+    <ClInclude Include="Game\Entity\World.hpp" />
+    <ClInclude Include="Game\GameDependencies.hpp" />
+    <ClInclude Include="Game\Map\PathMap.hpp" />
+    <ClInclude Include="Game\Phase\AbstractGamePhase.hpp" />
+    <ClInclude Include="Game\Phase\FinalizePhase.hpp" />
+    <ClInclude Include="Game\Phase\GamePhaseNormal.hpp" />
+    <ClInclude Include="Game\Phase\Patching.hpp" />
+    <ClInclude Include="Game\Phase\PhaseInterface.hpp" />
+    <ClInclude Include="Game\Phase\PickPhase.hpp" />
+    <ClInclude Include="Game\Phase\Serialize.hpp" />
+    <ClInclude Include="Game\PropertyHelper.hpp" />
+    <ClInclude Include="Game\Shape.hpp" />
+    <ClInclude Include="Game\Spell\AuraEvent.hpp" />
+    <ClInclude Include="Game\Spell\AuraFwd.hpp" />
+    <ClInclude Include="Game\Spell\Destination.hpp" />
+    <ClInclude Include="Game\stdafx.h" />
+    <ClInclude Include="Game\TargetPreferenceUtil.hpp" />
+    <ClInclude Include="Game\VisualCollector.hpp" />
+    <ClInclude Include="Game\GameStatistics.hpp" />
+    <ClInclude Include="Game\Map\BuildingMap.hpp" />
+    <ClInclude Include="Game\Map\ColliderMap.hpp" />
+    <ClInclude Include="Game\Map\GridMap.hpp" />
+    <ClInclude Include="Game\Map\RoutingMap.hpp" />
+    <ClInclude Include="Game\Map\TileMap.hpp" />
+    <ClInclude Include="Game\Map\VisibilityMap.hpp" />
+    <ClInclude Include="Game\Match.hpp" />
+    <ClInclude Include="Game\Spell\Aura.hpp" />
+    <ClInclude Include="Game\Spell\AuraEffects.hpp" />
+    <ClInclude Include="Game\Spell\Carrier.hpp" />
+    <ClInclude Include="Game\Spell\Spell.hpp" />
+    <ClInclude Include="Game\Spell\SpellEffects.hpp" />
+    <ClInclude Include="Game\Spell\SpellManager.hpp" />
+    <ClInclude Include="Game\Spell\TargetFinder.hpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B617A13C-8394-4EE8-956D-40D89124EDAE}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='LocalDebug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Deployment|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='LocalRelease|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(SolutionDir)PropertySheet.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='LocalDebug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(SolutionDir)PropertySheet.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(SolutionDir)PropertySheet.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Deployment|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(SolutionDir)PropertySheet.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='LocalRelease|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(SolutionDir)PropertySheet.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IntDir>$(SolutionDir)tmp\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <TargetName>$(ProjectName)d</TargetName>
+    <ReferencePath>$(VC_ReferencesPath_x86);</ReferencePath>
+    <OutDir>$(SolutionDir)lib\</OutDir>
+    <ExecutablePath>$(VC_ExecutablePath_x64);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(FxCopDir);$(PATH);</ExecutablePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='LocalDebug|x64'">
+    <IntDir>$(SolutionDir)tmp\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <TargetName>$(ProjectName)d</TargetName>
+    <ReferencePath>$(VC_ReferencesPath_x86);</ReferencePath>
+    <OutDir>$(SolutionDir)lib\</OutDir>
+    <ExecutablePath>$(VC_ExecutablePath_x64);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(FxCopDir);$(PATH);</ExecutablePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IntDir>$(SolutionDir)tmp\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <ReferencePath>$(VC_ReferencesPath_x86);</ReferencePath>
+    <OutDir>$(SolutionDir)lib\</OutDir>
+    <ExecutablePath>$(VC_ExecutablePath_x64);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(FxCopDir);$(PATH);</ExecutablePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Deployment|x64'">
+    <IntDir>$(SolutionDir)tmp\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <ReferencePath>$(VC_ReferencesPath_x86);</ReferencePath>
+    <OutDir>$(SolutionDir)lib\</OutDir>
+    <ExecutablePath>$(VC_ExecutablePath_x64);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(FxCopDir);$(PATH);</ExecutablePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='LocalRelease|x64'">
+    <IntDir>$(SolutionDir)tmp\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <ReferencePath>$(VC_ReferencesPath_x86);</ReferencePath>
+    <OutDir>$(SolutionDir)lib\</OutDir>
+    <ExecutablePath>$(VC_ExecutablePath_x64);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(FxCopDir);$(PATH);</ExecutablePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>_ENABLE_ATOMIC_ALIGNMENT_FIX;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_SCL_SECURE_NO_WARNINGS;UNICODE;WIN64;GAME_LIB;%(PreprocessorDefinitions);_HAS_AUTO_PTR_ETC</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;.\Game;$(SolutionDir)src\AI;$(SolutionDir)src\Data;$(SolutionDir)src\Core;$(JsonLibDir);$(BoostDir);$(SimpleLibDir);$(ProtobufDir)\..\install\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DisableSpecificWarnings>4250</DisableSpecificWarnings>
+      <AdditionalOptions>/std:c++latest /permissive- /FS %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).lib</OutputFile>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>AId.lib</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='LocalDebug|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>_ENABLE_ATOMIC_ALIGNMENT_FIX;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_SCL_SECURE_NO_WARNINGS;LOCAL;UNICODE;WIN64;GAME_LIB;%(PreprocessorDefinitions);_HAS_AUTO_PTR_ETC</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;.\Game;$(SolutionDir)src\AI;$(SolutionDir)src\Data;$(SolutionDir)src\Core;$(JsonLibDir);$(BoostDir);$(SimpleLibDir);$(ProtobufDir)\..\install\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <BrowseInformation>false</BrowseInformation>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <DisableSpecificWarnings>4250</DisableSpecificWarnings>
+      <AdditionalOptions>/std:c++latest /permissive- /FS %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).lib</OutputFile>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
+    <Lib>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>_ENABLE_ATOMIC_ALIGNMENT_FIX;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_SCL_SECURE_NO_WARNINGS;UNICODE;WIN64;NDEBUG;GAME_LIB;%(PreprocessorDefinitions);_HAS_AUTO_PTR_ETC</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;.\Game;$(SolutionDir)src\AI;$(SolutionDir)src\Data;$(SolutionDir)src\Core;$(JsonLibDir);$(BoostDir);$(SimpleLibDir);$(ProtobufDir)\..\install\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DisableSpecificWarnings>4250</DisableSpecificWarnings>
+      <AdditionalOptions>/std:c++latest /permissive- /FS %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).lib</OutputFile>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>AI.lib</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Deployment|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>_ENABLE_ATOMIC_ALIGNMENT_FIX;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_SCL_SECURE_NO_WARNINGS;UNICODE;WIN64;NDEBUG;GAME_LIB;%(PreprocessorDefinitions);_HAS_AUTO_PTR_ETC</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;.\Game;$(SolutionDir)src\AI;$(SolutionDir)src\Data;$(SolutionDir)src\Core;$(JsonLibDir);$(BoostDir);$(SimpleLibDir);$(ProtobufDir)\..\install\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DisableSpecificWarnings>4250</DisableSpecificWarnings>
+      <AdditionalOptions>/std:c++latest /permissive- /FS %(AdditionalOptions)</AdditionalOptions>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).lib</OutputFile>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>AI.lib</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <LinkTimeCodeGeneration>true</LinkTimeCodeGeneration>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='LocalRelease|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>_ENABLE_ATOMIC_ALIGNMENT_FIX;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_SCL_SECURE_NO_WARNINGS;LOCAL;UNICODE;WIN64;NDEBUG;GAME_LIB;%(PreprocessorDefinitions);_HAS_AUTO_PTR_ETC</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;.\Game;$(SolutionDir)src\AI;$(SolutionDir)src\Data;$(SolutionDir)src\Core;$(JsonLibDir);$(BoostDir);$(SimpleLibDir);$(ProtobufDir)\..\install\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <DisableSpecificWarnings>4250</DisableSpecificWarnings>
+      <AdditionalOptions>/std:c++latest /permissive- /FS %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).lib</OutputFile>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>AI.lib</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

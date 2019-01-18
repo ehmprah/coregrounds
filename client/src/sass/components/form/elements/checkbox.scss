@@ -1,0 +1,21 @@
+input[type="checkbox"] {
+  display:none;
+}
+
+input[type="checkbox"]:hover {
+  cursor: inherit;
+}
+
+input[type="checkbox"] + label {
+  display: inline-block;
+  vertical-align: middle;
+  padding: .5em .5em .5em 1.8em;
+  overflow: hidden;
+  background: url(img/checkbox-off.svg) left center no-repeat;
+  cursor: inherit;
+  font-family: inherit;
+}
+
+input[type="checkbox"]:checked + label {
+  background: url(img/checkbox-on.svg) left center no-repeat;
+}

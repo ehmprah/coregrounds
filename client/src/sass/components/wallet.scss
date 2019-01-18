@@ -1,0 +1,40 @@
+.wallet {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 280px;
+  display: flex;
+  height: 60px;
+  background: #000;
+  border: 10px solid #000;
+  transform: translateX(-50%);
+  justify-content: space-evenly;
+  currency {
+    svg {
+      width: 24px;
+    }
+    &:first-child {
+      margin-right: 15px;
+    }
+  }
+  &::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 60px solid black;
+    border-left: 40px solid transparent;
+    position: absolute;
+    left: -50px;
+    top: -10px;
+  }
+  &::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 60px solid black;
+    border-right: 40px solid transparent;
+    position: absolute;
+    right: -50px;
+    top: -10px;
+  }
+}

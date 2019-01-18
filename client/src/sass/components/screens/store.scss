@@ -1,0 +1,56 @@
+unlock.bonus {
+  sprite {
+    margin: 1em;
+    svg {
+      width: 100%;
+      max-width: 80px;
+      margin: auto;
+      fill: silver;
+    }
+  }
+  label.amount {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+  }
+}
+
+unlock.credits {
+  sprite {
+    margin: 1em;
+    svg {
+      width: 100%;
+      max-width: 100px;
+      margin: auto;
+      fill: silver;
+    }
+  }
+  label.amount {
+    font-size: 1.5em;
+    color: silver;
+    margin: 0.5em 0 1em 0;
+  }
+}
+
+unlock.bg {
+  label {
+    margin-bottom: 100px;
+  }
+}
+
+unlock.icon {
+  img {
+    max-width: 128px;
+    border: 2px solid #000;
+    margin: 2em auto;
+    display: block;
+  }
+}
+
+unlock.emote {
+  .flex {
+    min-height: 150px;
+    margin: 1em;
+    text-align: center;
+    font-size: 1.4em;
+  }
+}

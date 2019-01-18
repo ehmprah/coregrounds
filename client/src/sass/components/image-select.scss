@@ -1,0 +1,20 @@
+.image-select {
+  input[type="radio"] + label {
+    background: none;
+    border: 3px solid transparent;
+    padding: 0;
+    margin: 0.5em;
+  }
+
+  input[type="radio"]:checked + label {
+    border: 3px solid;
+  }
+
+  label {
+    width: 96px;
+    height: 96px;
+    border: 3px solid #000;
+    display: block;
+    border-radius: 5px;
+  }
+}

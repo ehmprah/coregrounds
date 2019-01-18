@@ -1,0 +1,19 @@
+             
+ _ __ ___  __ _  __| |_ __ ___   ___ 
+| '__/ _ \/ _` |/ _` | '_ ` _ \ / _ \
+| | |  __/ (_| | (_| | | | | | |  __/
+|_|  \___|\__,_|\__,_|_| |_| |_|\___|
+
+==== requirements: ====
+Visual Studio 2017 or later
+
+
+==== install guide: ====
+Everything you need is already inside of the project.
+For the first installation (or when some dependencies are getting updated) follow the instructions below:
+
+- open the sln as usual
+- right click on the project boost and build (this will need some time)
+- right click on the project protobuf and build (this will need some time, too)
+- if any of the above build steps fail; try to build again. It should work, but might fail for some reasons.
+- That's it. Try to build the server stuff as usual (press F5 or F7)

@@ -1,0 +1,31 @@
+{
+  "development": {
+    "API_KEY": "---",
+    "WEBSERVER": "https://dev.coregrounds.com",
+    "GCE": {}
+  },
+  "production": {
+    "API_KEY": "---",
+    "WEBSERVER": "https://coregrounds.com",
+    "DISCORD_TOKEN": "---",
+    "GCE": {
+      "AUTORESTART": true,
+      "MAX_INSTANCES": 2,
+      "MAX_GAMES_PER_INSTANCE": 15,
+      "INSTANCE_TYPE": "n1-highcpu-2",
+      "INSTANCE_IMAGE": "",
+      "ZONES": {
+        "us": "us-east1-c",
+        "asia": "asia-southeast1-a",
+        "europe": "europe-west3-a"
+      },
+      "CLIENTCONFIG": {
+        "projectId": "",
+        "credentials": {
+          "private_key": "",
+          "client_email": ""
+        }
+      }
+    }
+  }
+}

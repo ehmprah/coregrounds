@@ -1,0 +1,1213 @@
+<?php
+/**
+ * Implementation of hook_schema().
+ */
+function coregrounds_schema() {
+
+   $schema['coregrounds_players'] = array(
+    'fields' => array(
+      'uid' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'coins' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'coins_earned' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'boost_wins' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'boost_until' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'permaboost' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'invites' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'invited_by' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'pvp_winstreak' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'solo_progress' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'achievement_progress' => array('type' => 'float', 'not null' => TRUE,'default' => 0),
+      'highest_rank' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'modification_pages' => array('type' => 'int', 'not null' => TRUE,'default' => 1),
+      'last_used_page' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'emblem' => array('type' => 'int', 'not null' => TRUE,'default' => 102),
+      'emotes' => array('type' => 'varchar','length' => 255,'not null' => TRUE,'default' => '17'),
+    ),
+    'primary key' => array('uid'),
+  );
+
+  $schema['coregrounds_seasons'] = array(
+    'fields' => array(
+      'uid' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'season' => array('type' => 'varchar','length' => 255,'not null' => TRUE,'default' => ''),
+      'casual_wins' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'casual_games' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'casual_rank' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'casual_winrate' => array('type' => 'float', 'not null' => TRUE,'default' => 0),
+      'ranked_wins' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'ranked_games' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'ranked_rank' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'ranked_winrate' => array('type' => 'float', 'not null' => TRUE,'default' => 0),
+    ),
+    'indexes' => array(
+      'uid_season' => array('uid','season'),
+    ),
+  );
+
+  $schema['coregrounds_matches'] = array(
+    'fields' => array(
+      'mid' => array('type' => 'serial'),
+      'match_type' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'uid_0' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'spawned_0' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'wbuilt_0' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'wkills_0' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'mkills_0' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'tkills_0' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'upgrades_0' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'abilities_0' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'dmg_0' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'healing_0' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'coins_0' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'core_0' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'picks_0' => array('type' => 'varchar','length' => 255,'not null' => TRUE),
+      'uid_1' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'spawned_1' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'wbuilt_1' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'wkills_1' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'mkills_1' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'tkills_1' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'upgrades_1' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'abilities_1' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'dmg_1' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'healing_1' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'coins_1' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'core_1' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'picks_1' => array('type' => 'varchar','length' => 255,'not null' => TRUE),
+      'won' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'ended' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'duration' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+    ),
+    'primary key' => array('mid'),
+    'indexes' => array(
+      'uids_match_type' => array('uid_0','uid_1','match_type'),
+    ),
+  );
+
+  $schema['coregrounds_modifications'] = array(
+    'fields' => array(
+      'pid' => array('type' => 'serial'),
+      'uid' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'title' => array('type' => 'varchar','length' => 255,'not null' => TRUE),
+      'tier_1_1' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'tier_1_2' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'tier_1_3' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'tier_1_4' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'tier_1_5' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'tier_2_1' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'tier_2_2' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'tier_2_3' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'tier_3_1' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+    ),
+    'primary key' => array('pid'),
+  );
+
+  $schema['coregrounds_unlocks'] = array(
+    'fields' => array(
+      'uid' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'unlid' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+    ),
+    'primary key' => array('uid','unlid'),
+  );
+
+  $schema['coregrounds_achievements'] = array(
+    'fields' => array(
+      'uid' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'aid' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'unlocked' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'progress' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+    ),
+    'indexes' => array(
+      'uid_aid_unlocked' => array('uid','aid','unlocked'),
+    ),
+  );
+
+  $schema['coregrounds_free_daily'] = array(
+    'fields' => array(
+      'unlid' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'type' => array('type' => 'varchar','length' => 1,'not null' => TRUE,'default' => ''),
+      'days' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+    ),
+    'primary key' => array('unlid'),
+  );
+
+
+  $schema['coregrounds_statistics'] = array(
+    'fields' => array(
+      'unlid' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'season' => array('type' => 'varchar','length' => 255,'not null' => TRUE,'default' => 'ALPHA'),
+      'bans' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'picks' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'wins' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+    ),
+    'indexes' => array(
+      'unlid' => array('unlid'),
+    ),
+  );
+
+  $schema['coregrounds_coupons'] = array(
+    'fields' => array(
+      'code' => array('type' => 'varchar','length' => 8,'not null' => TRUE,'default' => ''),
+      'batch' => array('type' => 'varchar','length' => 64,'not null' => TRUE,'default' => ''),
+      'cordium' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'used_by' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'public' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+    ),
+    'primary key' => array('code'),
+  );
+
+  $schema['coregrounds_transactions'] = array(
+    'fields' => array(
+      'orderid' => array('type' => 'serial', 'size' => 'big', 'not null' => TRUE, 'unsigned' => TRUE),
+      'txnid' => array('type' => 'int', 'size' => 'big', 'not null' => TRUE, 'unsigned' => TRUE, 'default' => 0),
+      'uid' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'bundle' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'created' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'changed' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'status' => array('type' => 'varchar','length' => 128, 'not null' => TRUE, 'default' => ''),
+      'country' => array('type' => 'varchar','length' => 2, 'not null' => TRUE, 'default' => ''),
+      'currency' => array('type' => 'varchar','length' => 3, 'not null' => TRUE, 'default' => ''),
+    ),
+    'primary key' => array('orderid'),
+  );
+
+  return $schema;
+}
+
+/**
+ * Implementation of hook_install().
+ */
+function coregrounds_install() {
+  $season = coregrounds_season_key();
+  variable_set('coregrounds_current_season', $season);
+  db_query("UPDATE {system} SET weight = 5 WHERE name = 'coregrounds'");
+  foreach(db_select('users','u')->condition('u.uid',0,'!=')->fields('u',array('uid'))->execute()->fetchCol() as $uid) {
+    db_insert('coregrounds_players')->fields(array('uid' => $uid))->execute();
+    db_insert('coregrounds_seasons')->fields(array('uid' => $uid,'season' => $season))->execute();
+    db_insert('coregrounds_modifications')->fields(array('uid' => $uid,'title' => 'Untitled page'))->execute();
+    db_insert('coregrounds_unlocks')->fields(array('uid' => $uid,'unlid' => 102))->execute();
+    db_insert('coregrounds_unlocks')->fields(array('uid' => $uid,'unlid' => 17))->execute();
+  }
+}
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function coregrounds_uninstall() {
+  //do stuff
+}
+
+/**
+ * Add color to player table, unlock base colors for everyone
+ */
+function coregrounds_update_7000() {
+  //add new field
+  db_add_field('coregrounds_players','color',array('type' => 'int','not null' => TRUE,'default' => 301));
+  //unlock blue and orange for all players
+  $uids = db_select("users",'u')->fields('u',array('uid'))->execute()->fetchCol();
+  foreach($uids as $uid) {
+    db_insert('coregrounds_unlocks')->fields(array(
+      'uid' => $uid,
+      'unlid' => 301,
+    ))->execute();
+    db_insert('coregrounds_unlocks')->fields(array(
+      'uid' => $uid,
+      'unlid' => 302,
+    ))->execute();
+  }
+}
+
+/**
+ * Add invite_threshold to player table
+ */
+function coregrounds_update_7001() {
+  //add new field
+  db_add_field('coregrounds_players','invite_threshold',array('type' => 'int','not null' => TRUE,'default' => 0));
+}
+
+/**
+ * Add total wins to player table, update match table
+ */
+function coregrounds_update_7002() {
+  //add win field
+  db_add_field('coregrounds_players','wins',array('type' => 'int','not null' => TRUE,'default' => 0));
+  //add all current season wins to that number
+  $results = db_select("coregrounds_seasons",'s')->fields('s',array('uid','casual_wins','ranked_wins'))->execute();
+  foreach($results as $result) {
+    db_update('coregrounds_players')->fields(array(
+      'wins' => $result->casual_wins + $result->ranked_wins
+    ))->condition('uid',$result->uid)->execute();
+  }
+  //drop mkill fields
+  db_drop_field('coregrounds_matches', 'mkills_0');
+  db_drop_field('coregrounds_matches', 'mkills_1');
+  //add xp fields
+  db_add_field('coregrounds_matches','xp_0',array('type' => 'int','not null' => TRUE,'default' => 0));
+  db_add_field('coregrounds_matches','xp_1',array('type' => 'int','not null' => TRUE,'default' => 0));
+  //add factory fields
+  db_add_field('coregrounds_matches','factories_0',array('type' => 'text'));
+  db_add_field('coregrounds_matches','factories_1',array('type' => 'text'));
+}
+
+/**
+ * Add private match counter to player table
+ */
+function coregrounds_update_7003() {
+  db_add_field('coregrounds_players','pmatches',array('type' => 'int','not null' => TRUE,'default' => 0));
+}
+
+/**
+ * Add daily match played field to player table
+ * Add patch field to stats
+ */
+function coregrounds_update_7004() {
+
+  //restructure player table, daily bonus
+  db_drop_field('coregrounds_players', 'first_win_of_the_day');
+  db_add_field('coregrounds_players','daily_match',array('type' => 'int','not null' => TRUE,'default' => 0));
+  db_add_field('coregrounds_players','daily_bonus',array('type' => 'int','not null' => TRUE,'default' => 0));
+
+  //add patch field to stats
+  db_add_field('coregrounds_statistics','patch', array('type' => 'varchar','length' => 32,'not null' => TRUE,'default' => '0.9.12'));
+
+  //restructure modifications table
+  db_drop_field('coregrounds_modifications', 'tier_1_1');
+  db_drop_field('coregrounds_modifications', 'tier_1_2');
+  db_drop_field('coregrounds_modifications', 'tier_1_3');
+  db_drop_field('coregrounds_modifications', 'tier_1_4');
+  db_drop_field('coregrounds_modifications', 'tier_1_5');
+  db_drop_field('coregrounds_modifications', 'tier_2_1');
+  db_drop_field('coregrounds_modifications', 'tier_2_2');
+  db_drop_field('coregrounds_modifications', 'tier_2_3');
+  db_drop_field('coregrounds_modifications', 'tier_3_1');
+  db_add_field('coregrounds_modifications','mods',array('type' => 'text'));
+}
+
+/**
+ * Add coupon code table
+ */
+function coregrounds_update_7005() {
+
+  $schema['coregrounds_coupons'] = array(
+    'fields' => array(
+      'code' => array('type' => 'varchar','length' => 8,'not null' => TRUE,'default' => ''),
+      'flat_coins' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'skin_tokens' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'boost_wins' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'boost_until' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'permaboost' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'uses_left' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'valid_until' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+    ),
+    'primary key' => array('code'),
+  );
+
+  db_create_table('coregrounds_coupons', $schema['coregrounds_coupons']);
+}
+
+/**
+ * Update coupon table and add analytics table
+ */
+function coregrounds_update_7006() {
+
+  //add matches field to player table
+  db_add_field('coregrounds_players','matches',array('type' => 'int','not null' => TRUE,'default' => 0));
+  //add all current season matches to that number
+  $results = db_select("coregrounds_seasons",'s')->fields('s',array('uid','casual_games','ranked_games'))->execute();
+  foreach($results as $result) {
+    db_update('coregrounds_players')->fields(array(
+      'matches' => $result->casual_games + $result->ranked_games
+    ))->condition('uid',$result->uid)->execute();
+  }
+
+  //remove the uses field, every coupon will be unique
+  db_drop_field('coregrounds_coupons', 'uses_left');
+  //add batch and uid field to coupon table
+  db_add_field('coregrounds_coupons','batch', array('type' => 'varchar','length' => 64,'not null' => TRUE,'default' => ''));
+  db_add_field('coregrounds_coupons','used_by', array('type' => 'int', 'not null' => TRUE,'default' => 0));
+
+  //create the analytics table
+  db_create_table('coregrounds_analytics', array(
+    'fields' => array(
+      'analytics_date' => array('type' => 'varchar','length' => 10,'not null' => TRUE,'default' => ''),
+      'analytics_type' => array('type' => 'varchar','length' => 10,'not null' => TRUE,'default' => ''),
+      'active_users' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'total_users' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'total_inactive_users' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'new_users' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'invited' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'subscribers' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'matches_bot' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'matches_pvp' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'matches_ranked' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'matches_private' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'new_content' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'new_comments' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+    ),
+    'primary key' => array('date'),
+  ));
+}
+
+/**
+ * Update analytics table
+ */
+function coregrounds_update_7007() {
+  //remove the total field, we have our own page for that
+  db_drop_field('coregrounds_analytics', 'total_users');
+  db_drop_field('coregrounds_analytics', 'invited');
+  db_drop_field('coregrounds_analytics', 'subscribers');
+  db_drop_field('coregrounds_analytics', 'total_inactive_users');
+  //add batch and uid field to coupon table
+  db_add_field('coregrounds_analytics','percentage_invites', array('type' => 'float', 'not null' => TRUE,'default' => 0));
+  db_add_field('coregrounds_analytics','percentage_inactives', array('type' => 'float', 'not null' => TRUE,'default' => 0));
+  db_add_field('coregrounds_analytics','percentage_subscribers', array('type' => 'float', 'not null' => TRUE,'default' => 0));
+}
+
+/**
+ * Update analytics table
+ */
+function coregrounds_update_7008() {
+  //remove the expiry field, no need for that
+  db_drop_field('coregrounds_coupons', 'valid_until');
+}
+
+/**
+ * Create tables coregrounds_match_players, coregrounds_match_factories, coregrounds_match_abilities
+ */
+function coregrounds_update_7009() {
+  //add public field so we don't use coupons twice
+  db_add_field('coregrounds_coupons','public', array('type' => 'int', 'not null' => TRUE,'default' => 0));
+
+  //create the coregrounds_match_players table
+  db_create_table('coregrounds_matches_players', array(
+    'fields' => array(
+      'mid' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'uid' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'name' => array('type' => 'varchar','length' => 60,'not null' => TRUE,'default' => ''),
+      'color' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'player' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'matches_played' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'minions_spawned' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'walls_built' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'walls_killed' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'towers_killed' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'damage' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'healing' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'coins' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'core_health' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'ban_1' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'ban_2' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+    ),
+    'indexes' => array(
+      'mid' => array('mid'),
+      'uid' => array('uid'),
+    ),
+  ));
+
+  //create the coregrounds_match_players table
+  db_create_table('coregrounds_matches_factories', array(
+    'fields' => array(
+      'mid' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'player' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'id' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'pickorder' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'xp' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'upgrade_1' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'upgrade_2' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'upgrade_3' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'xp_per_min' => array('type' => 'text'),
+    ),
+    'indexes' => array(
+      'mid' => array('mid'),
+    ),
+  ));
+
+  //create the coregrounds_match_players table
+  db_create_table('coregrounds_matches_abilities', array(
+    'fields' => array(
+      'mid' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'player' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'id' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'pickorder' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+      'uses' => array('type' => 'int', 'not null' => TRUE,'default' => 0),
+    ),
+    'indexes' => array(
+      'mid' => array('mid'),
+    ),
+  ));
+}
+
+/**
+ * Copy values to new tables
+ */
+function coregrounds_update_7010(&$sandbox) {
+  //start the update
+  if (!isset($sandbox['progress'])) {
+    $sandbox['progress'] = 0;
+    $sandbox['total'] = db_query('SELECT COUNT(mid) FROM {coregrounds_matches}')->fetchField();
+    $sandbox['last_match'] = 0;
+  }
+  //process 10 matches in one request
+  foreach(db_query("SELECT * FROM coregrounds_matches WHERE mid > :mid ORDER BY mid ASC LIMIT 10",array(':mid' => $sandbox['last_match'])) as $match) {
+    foreach(array(0,1) as $pid) {
+      //we now save name and color to player table
+      if($match->match_type == 0 && $pid == 1) {
+        $cfg = json_decode(file_get_contents("../config.json"), true);
+        $name = $cfg['aiplayers'][$match->uid_1]['name'];
+        $color = $cfg['aiplayers'][$match->uid_1]['color'];
+      } else {
+        $account = user_load($match->{"uid_".$pid});
+        if($account) {
+          $name = check_plain($account->name);
+          $color = $account->data->color;
+        } else {
+          $name = 'Deleted';
+          $color = 301;
+        }
+      }
+      //add each player to player info table
+      db_insert('coregrounds_matches_players')->fields(array(
+        'mid' => $match->mid,
+        'uid' => $match->{"uid_".$pid},
+        'name' => $name,
+        'color' => $color,
+        'player' => $pid,
+        'minions_spawned' => $match->{"spawned_".$pid},
+        'walls_built' => $match->{"wbuilt_".$pid},
+        'walls_killed' => $match->{"wkills_".$pid},
+        'towers_killed' => $match->{"tkills_".$pid},
+        'damage' => $match->{"dmg_".$pid},
+        'healing' => $match->{"healing_".$pid},
+        'coins' => $match->{"coins_".$pid},
+        'core_health' => $match->{"core_".$pid},
+      ))->execute();
+
+      //add factories
+      if($match->{'factories_'.$pid}) {
+        foreach(json_decode($match->{'factories_'.$pid}) as $unlid => $unit) {
+          db_insert('coregrounds_matches_factories')->fields(array(
+            'mid' => $match->mid,
+            'player' => $pid,
+            'id' => $unlid,
+            'xp' => $unit->xp,
+            'upgrade_1' => $unit->up1,
+            'upgrade_2' => $unit->up2,
+            'upgrade_3' => $unit->up3,
+          ))->execute();
+        }
+      }
+
+      //add abilities
+      $picks = explode(',',$match->{"picks_".$pid});
+      if($picks) {
+        db_insert('coregrounds_matches_abilities')->fields(array(
+          'mid' => $match->mid,
+          'player' => $pid,
+          'id' => $picks[6],
+          'uses' => $match->{"abilities_".$pid},
+        ))->execute();
+        db_insert('coregrounds_matches_abilities')->fields(array(
+          'mid' => $match->mid,
+          'player' => $pid,
+          'id' => $picks[7],
+        ))->execute();
+        db_insert('coregrounds_matches_abilities')->fields(array(
+          'mid' => $match->mid,
+          'player' => $pid,
+          'id' => $picks[8],
+        ))->execute();
+      }
+    }
+    //set progress
+    $sandbox['last_match'] = $match->mid;
+    $sandbox['progress']++;
+  }
+  //check if the update is finished
+  $sandbox['#finished'] = ($sandbox['progress'] >= $sandbox['total']) ? TRUE : ($sandbox['progress'] / $sandbox['total']);
+}
+
+/**
+ * Cleanup old match table
+ */
+function coregrounds_update_7011() {
+  //remove the expiry field, no need for that
+  db_drop_field('coregrounds_matches', 'uid_0');
+  db_drop_field('coregrounds_matches', 'uid_1');
+  db_drop_field('coregrounds_matches', 'spawned_0');
+  db_drop_field('coregrounds_matches', 'spawned_1');
+  db_drop_field('coregrounds_matches', 'wbuilt_0');
+  db_drop_field('coregrounds_matches', 'wbuilt_1');
+  db_drop_field('coregrounds_matches', 'wkills_0');
+  db_drop_field('coregrounds_matches', 'wkills_1');
+  db_drop_field('coregrounds_matches', 'tkills_0');
+  db_drop_field('coregrounds_matches', 'tkills_1');
+  db_drop_field('coregrounds_matches', 'upgrades_0');
+  db_drop_field('coregrounds_matches', 'upgrades_1');
+  db_drop_field('coregrounds_matches', 'abilities_0');
+  db_drop_field('coregrounds_matches', 'abilities_1');
+  db_drop_field('coregrounds_matches', 'dmg_0');
+  db_drop_field('coregrounds_matches', 'dmg_1');
+  db_drop_field('coregrounds_matches', 'healing_0');
+  db_drop_field('coregrounds_matches', 'healing_1');
+  db_drop_field('coregrounds_matches', 'coins_0');
+  db_drop_field('coregrounds_matches', 'coins_1');
+  db_drop_field('coregrounds_matches', 'core_0');
+  db_drop_field('coregrounds_matches', 'core_1');
+  db_drop_field('coregrounds_matches', 'picks_0');
+  db_drop_field('coregrounds_matches', 'picks_1');
+  db_drop_field('coregrounds_matches', 'xp_0');
+  db_drop_field('coregrounds_matches', 'xp_1');
+  db_drop_field('coregrounds_matches', 'factories_0');
+  db_drop_field('coregrounds_matches', 'factories_1');
+}
+
+/**
+ * Add retention to the analytics table
+ */
+function coregrounds_update_7012() {
+  //remove the total field, we have our own page for that
+  db_drop_field('coregrounds_analytics', 'percentage_inactives');
+  //add batch and uid field to coupon table
+  db_add_field('coregrounds_analytics','retention_d1', array('type' => 'float', 'not null' => TRUE,'default' => 0));
+  db_add_field('coregrounds_analytics','retention_d7', array('type' => 'float', 'not null' => TRUE,'default' => 0));
+  db_add_field('coregrounds_analytics','retention_d30', array('type' => 'float', 'not null' => TRUE,'default' => 0));
+}
+
+/**
+ * Add new fields for player data
+ */
+function coregrounds_update_7013() {
+  // Add fields for proxy currency, xp and level
+  db_add_field('coregrounds_players', 'stars',
+    array('type' => 'int', 'not null' => TRUE,'default' => 0));
+  db_add_field('coregrounds_players', 'xp',
+    array('type' => 'int', 'not null' => TRUE,'default' => 0));
+  db_add_field('coregrounds_players', 'lvl',
+    array('type' => 'int', 'not null' => TRUE,'default' => 0));
+}
+
+/**
+ * Add new fields for player data
+ */
+function coregrounds_update_7014() {
+  // Add field for skin setup
+  db_add_field('coregrounds_players', 'skins',
+    array('type' => 'text'));
+}
+
+/**
+ * Add new fields
+ */
+function coregrounds_update_7015() {
+  // Add xp field for matches
+  db_add_field('coregrounds_matches_players', 'xp',
+    array('type' => 'int', 'not null' => TRUE,'default' => 0));
+
+  // Add percentage for achievements, so we don't have to calculate that every time
+  db_add_field('coregrounds_achievements', 'percentage', array('type' => 'float', 'not null' => TRUE,'default' => 0));
+}
+
+/**
+ * Update fields
+ */
+function coregrounds_update_7016() {
+  // Remove the named premium currency field
+  db_drop_field('coregrounds_players', 'stars');
+
+  // drop the percentage field on achievements, we dont need it after all
+  db_drop_field('coregrounds_achievements', 'percentage');
+
+  // Keep track of the amount of premium currency bought
+  db_add_field('coregrounds_players', 'pc_current', array('type' => 'int', 'not null' => TRUE,'default' => 0));
+  db_add_field('coregrounds_players', 'pc_bought', array('type' => 'int', 'not null' => TRUE,'default' => 0));
+
+  // Keep track of the amount of xp round trips
+  db_add_field('coregrounds_players', 'medals', array('type' => 'int', 'not null' => TRUE,'default' => 0));
+
+  // Add solo progress to season table
+  db_add_field('coregrounds_seasons', 'bot_wins', array('type' => 'int', 'not null' => TRUE,'default' => 0));
+  db_add_field('coregrounds_seasons', 'bot_games', array('type' => 'int', 'not null' => TRUE,'default' => 0));
+  db_add_field('coregrounds_seasons', 'bot_rank', array('type' => 'int', 'not null' => TRUE,'default' => 0));
+}
+
+/**
+ * Update fields
+ */
+function coregrounds_update_7017() {
+  // Keep track of the amount of premium currency bought
+  db_add_field('coregrounds_players', 'level_progress', array('type' => 'float', 'not null' => TRUE,'default' => 0));
+}
+
+/**
+ * Update fields
+ */
+function coregrounds_update_7018() {
+  // Save selected background
+  db_add_field('coregrounds_players', 'background', array('type' => 'int', 'not null' => TRUE,'default' => 0));
+}
+
+/**
+ * Update fields
+ */
+function coregrounds_update_7019() {
+  // Save selected background
+  db_add_field('coregrounds_players', 'tutorial', array('type' => 'int', 'not null' => TRUE,'default' => 0));
+}
+
+/**
+ * Update fields.
+ */
+function coregrounds_update_7020() {
+  db_add_field('coregrounds_seasons', 'bot_winrate', array('type' => 'float', 'not null' => TRUE,'default' => 0));
+}
+
+/**
+ * Add TOS field
+ */
+function coregrounds_update_7021() {
+  db_add_field('coregrounds_players', 'tos_accepted', array('type' => 'varchar','length' => 32,'not null' => TRUE,'default' => '0.0.0'));
+}
+
+/**
+ * Drop old tables
+ */
+function coregrounds_update_7022() {
+  db_drop_table('coregrounds_newsletter');
+  db_drop_table('coregrounds_notifications');
+  db_drop_table('coregrounds_payments');
+  db_drop_table('coregrounds_analytics');
+}
+
+/**
+ * Replace old unlock ids
+ */
+function coregrounds_update_7023(&$sandbox) {
+  if (!isset($sandbox['progress'])) {
+    $sandbox['ids'] = [
+      ['old' => 10, 'new' => 1101],
+      ['old' => 408, 'new' => 1106],
+      ['old' => 409, 'new' => 1107],
+      ['old' => 406, 'new' => 1105],
+      ['old' => 405, 'new' => 1104],
+      ['old' => 402, 'new' => 1103],
+      ['old' => 15, 'new' => 1115],
+      ['old' => 44, 'new' => 1114],
+      ['old' => 42, 'new' => 1113],
+      ['old' => 14, 'new' => 1112],
+      ['old' => 12, 'new' => 1111],
+      ['old' => 43, 'new' => 1110],
+      ['old' => 13, 'new' => 1109],
+      ['old' => 11, 'new' => 1108],
+      ['old' => 401, 'new' => 1102],
+      ['old' => 9, 'new' => 1100],
+      ['old' => 411, 'new' => 1015],
+      ['old' => 410, 'new' => 1014],
+      ['old' => 407, 'new' => 1012],
+      ['old' => 404, 'new' => 1011],
+      ['old' => 403, 'new' => 1013],
+      ['old' => 7, 'new' => 1010],
+      ['old' => 50, 'new' => 1009],
+      ['old' => 400, 'new' => 1008],
+      ['old' => 49, 'new' => 1007],
+      ['old' => 48, 'new' => 1006],
+      ['old' => 47, 'new' => 1005],
+      ['old' => 46, 'new' => 1004],
+      ['old' => 45, 'new' => 1003],
+      ['old' => 6, 'new' => 1002],
+      ['old' => 5, 'new' => 1001],
+      ['old' => 4, 'new' => 1000],
+      ['old' => 507, 'new' => 1414],
+      ['old' => 506, 'new' => 1413],
+      ['old' => 505, 'new' => 1412],
+      ['old' => 504, 'new' => 1411],
+      ['old' => 503, 'new' => 1410],
+      ['old' => 501, 'new' => 1408],
+      ['old' => 500, 'new' => 1407],
+      ['old' => 39, 'new' => 1406],
+      ['old' => 38, 'new' => 1405],
+      ['old' => 3, 'new' => 1404],
+      ['old' => 41, 'new' => 1403],
+      ['old' => 40, 'new' => 1402],
+      ['old' => 2, 'new' => 1401],
+      ['old' => 1, 'new' => 1400],
+      ['old' => 502, 'new' => 1409],
+      ['old' => 102, 'new' => 2000],
+      ['old' => 16, 'new' => 2201],
+      ['old' => 17, 'new' => 2202],
+      ['old' => 18, 'new' => 2203],
+      ['old' => 19, 'new' => 2204],
+      ['old' => 20, 'new' => 2205],
+      ['old' => 21, 'new' => 2206],
+      ['old' => 22, 'new' => 2207],
+      ['old' => 23, 'new' => 2208],
+      ['old' => 24, 'new' => 2209],
+      ['old' => 25, 'new' => 2210],
+      ['old' => 26, 'new' => 2211],
+      ['old' => 27, 'new' => 2212],
+      ['old' => 28, 'new' => 2213],
+      ['old' => 29, 'new' => 2214],
+      ['old' => 30, 'new' => 2215],
+      ['old' => 31, 'new' => 2216],
+      ['old' => 32, 'new' => 2217],
+      ['old' => 33, 'new' => 2218],
+      ['old' => 34, 'new' => 2219],
+      ['old' => 35, 'new' => 2220],
+      ['old' => 36, 'new' => 2221],
+      ['old' => 37, 'new' => 2222],
+      ['old' => 301, 'new' => 2400],
+      ['old' => 302, 'new' => 2401],
+      ['old' => 303, 'new' => 2402],
+      ['old' => 304, 'new' => 2403],
+      ['old' => 307, 'new' => 2404],
+      ['old' => 308, 'new' => 2405],
+      ['old' => 309, 'new' => 2406],
+      ['old' => 310, 'new' => 2407],
+      ['old' => 312, 'new' => 2408],
+      ['old' => 313, 'new' => 2409],
+      ['old' => 700, 'new' => 1500],
+      ['old' => 701, 'new' => 1501],
+      ['old' => 702, 'new' => 1502],
+      ['old' => 703, 'new' => 1503],
+      ['old' => 704, 'new' => 1504],
+      ['old' => 705, 'new' => 1505],
+      ['old' => 706, 'new' => 1506],
+      ['old' => 707, 'new' => 1507],
+      ['old' => 708, 'new' => 1508],
+      ['old' => 709, 'new' => 1509],
+      ['old' => 710, 'new' => 1510],
+      ['old' => 711, 'new' => 1511],
+      ['old' => 712, 'new' => 1512],
+      ['old' => 713, 'new' => 1513],
+      ['old' => 714, 'new' => 1514],
+      ['old' => 715, 'new' => 1515],
+      ['old' => 716, 'new' => 1516],
+      ['old' => 717, 'new' => 1517],
+      ['old' => 718, 'new' => 1518],
+    ];
+    $sandbox['progress'] = 0;
+    $sandbox['total'] = count($sandbox['ids']);
+  }
+
+  // Get one id to replace
+  $ids = array_shift($sandbox['ids']);
+  // Replace all ocurrences
+  db_update('coregrounds_matches_abilities')->fields(array(
+    'id' => $ids['new'],
+  ))->condition('id', $ids['old'])->execute();
+  db_update('coregrounds_matches_factories')->fields(array(
+    'id' => $ids['new'],
+  ))->condition('id', $ids['old'])->execute();
+  db_update('coregrounds_unlocks')->fields(array(
+    'unlid' => $ids['new'],
+  ))->condition('unlid', $ids['old'])->execute();
+  db_update('coregrounds_statistics')->fields(array(
+    'unlid' => $ids['new'],
+  ))->condition('unlid', $ids['old'])->execute();
+  db_update('coregrounds_free_daily')->fields(array(
+    'unlid' => $ids['new'],
+  ))->condition('unlid', $ids['old'])->execute();
+  // Update progress
+  $sandbox['progress']++;
+  $sandbox['#finished'] = $sandbox['progress'] / $sandbox['total'];
+}
+
+/**
+ * Convert modification pages
+ */
+function coregrounds_update_7024(&$sandbox) {
+  if (!isset($sandbox['progress'])) {
+    $sandbox['ids'] = db_query('SELECT pid FROM coregrounds_modifications WHERE mods IS NOT NULL')
+      ->fetchCol();
+    $sandbox['progress'] = 0;
+    $sandbox['total'] = count($sandbox['ids']);
+  }
+
+  $replace = [
+    '700' => 1500,
+    '701' => 1501,
+    '702' => 1502,
+    '703' => 1503,
+    '704' => 1504,
+    '705' => 1505,
+    '706' => 1506,
+    '707' => 1507,
+    '708' => 1508,
+    '709' => 1509,
+    '710' => 1510,
+    '711' => 1511,
+    '712' => 1512,
+    '713' => 1513,
+    '714' => 1514,
+    '715' => 1515,
+    '716' => 1516,
+    '717' => 1517,
+    '718' => 1518,
+  ];
+
+  // Convert 10 at a time
+  foreach(array_splice($sandbox['ids'], 0, 10) as $id) {
+    // Load mods
+    $mods = db_query('SELECT mods FROM coregrounds_modifications WHERE pid = :id', [':id' => $id])
+      ->fetchField();
+    // Parse and build new, replacing old unlock ids
+    $new = [[],[],[]];
+    foreach (json_decode($mods, true) as $key => $m) {
+      foreach ($m as $modification) {
+        if ($key == 'offensive') $new[0][] = $replace[$modification];
+        if ($key == 'defensive') $new[1][] = $replace[$modification];
+        if ($key == 'utility') $new[2][] = $replace[$modification];
+      }
+    }
+    // Save new mods
+    db_update('coregrounds_modifications')->fields(array(
+      'mods' => json_encode($new),
+    ))->condition('pid', $id)->execute();
+    $sandbox['progress']++;
+  }
+  $sandbox['#finished'] = $sandbox['progress'] / $sandbox['total'];
+}
+
+/**
+ * Replace colors and icons in player and match data
+ */
+function coregrounds_update_7025(&$sandbox) {
+  if (!isset($sandbox['progress'])) {
+    $sandbox['ids'] = [
+      ['old' => 102, 'new' => 2000],
+      ['old' => 301, 'new' => 2400],
+      ['old' => 302, 'new' => 2401],
+      ['old' => 303, 'new' => 2402],
+      ['old' => 304, 'new' => 2403],
+      ['old' => 305, 'new' => 2400],
+      ['old' => 306, 'new' => 2400],
+      ['old' => 307, 'new' => 2404],
+      ['old' => 308, 'new' => 2405],
+      ['old' => 309, 'new' => 2406],
+      ['old' => 310, 'new' => 2407],
+      ['old' => 311, 'new' => 2400],
+      ['old' => 312, 'new' => 2408],
+      ['old' => 313, 'new' => 2409],
+    ];
+    $sandbox['progress'] = 0;
+    $sandbox['total'] = count($sandbox['ids']);
+  }
+
+  // Get one id to replace
+  $ids = array_shift($sandbox['ids']);
+  // Replace all ocurrences
+  db_update('coregrounds_matches_players')->fields(array(
+    'color' => $ids['new'],
+  ))->condition('color', $ids['old'])->execute();
+  db_update('coregrounds_players')->fields(array(
+    'color' => $ids['new'],
+  ))->condition('color', $ids['old'])->execute();
+  db_update('coregrounds_players')->fields(array(
+    'emblem' => $ids['new'],
+  ))->condition('emblem', $ids['old'])->execute();
+
+  // Update progress
+  $sandbox['progress']++;
+  $sandbox['#finished'] = $sandbox['progress'] / $sandbox['total'];
+}
+
+/**
+ * Add field for steam ids
+ */
+function coregrounds_update_7026() {
+  db_add_field('coregrounds_players', 'steamid', array(
+    'type' => 'int',
+    'size' => 'big',
+    'not null' => TRUE,
+    'default' => 0
+  ));
+}
+
+/**
+ * Add missing player data for last 70 registrations
+ */
+function coregrounds_update_7027() {
+  $ids = [
+    2562, 2563, 2564, 2565, 2566, 2567, 2568, 2569, 2570, 2571, 2572, 2573, 2574, 2575, 2576,
+    2577, 2578, 2579, 2580, 2581, 2582, 2583, 2584, 2585, 2586, 2587, 2588, 2589, 2590, 2591,
+    2592, 2593, 2594, 2595, 2596, 2597, 2598, 2599, 2600, 2601, 2602, 2603, 2604, 2605, 2606,
+    2607, 2608, 2609, 2610, 2611, 2612, 2613, 2614, 2615, 2616, 2617, 2618, 2619, 2620, 2621,
+    2622, 2623, 2624, 2625, 2626, 2627, 2628, 2630, 2631
+  ];
+
+  foreach ($ids as $id) {
+    db_insert('coregrounds_players')->fields(array(
+      'uid' => $id,
+      'color' => 2400,
+      'emblem' => 2000,
+    ))->execute();
+  }
+}
+
+/**
+ * Add table to store the steam store transactions
+ */
+function coregrounds_update_7028() {
+  $schema = coregrounds_schema();
+  db_create_table('coregrounds_transactions', $schema['coregrounds_transactions']);
+}
+
+/**
+ * Add new columns to several tables
+ */
+function coregrounds_update_7029() {
+  // Add timestamp to achievement table
+  db_add_field('coregrounds_achievements', 'updated', array(
+    'type' => 'int',
+    'not null' => TRUE,
+    'default' => 0,
+    'unsigned' => TRUE,
+  ));
+  // Add team id to match players table
+  db_add_field('coregrounds_matches_players', 'team', array(
+    'type' => 'int',
+    'not null' => TRUE,
+    'default' => 0,
+    'unsigned' => TRUE,
+    'size' => 'small',
+  ));
+}
+
+/**
+ * Replace old ids
+ */
+function coregrounds_update_7030() {
+  // Replace some leftover old ids due to old registration logic
+  $ids = [
+    ['old' => 102, 'new' => 2000],
+    ['old' => 17, 'new' => 2202],
+    ['old' => 301, 'new' => 2400],
+    ['old' => 302, 'new' => 2401],
+  ];
+
+  foreach ($ids as $id) {
+    db_update('coregrounds_unlocks')->fields(array(
+      'unlid' => $id['new'],
+    ))->condition('unlid', $id['old'])->execute();
+  }
+}
+
+/**
+ * Forced refunds
+ */
+function coregrounds_update_7031() {
+  foreach ([305, 306, 311, 2409] as $id) {
+    // Issue refund
+    $q = "SELECT u.uid, p.coins FROM coregrounds_unlocks u
+          JOIN coregrounds_players p ON u.uid = p.uid
+          WHERE u.unlid = :id";
+    foreach (db_query($q, [':id' => $id]) as $account) {
+      db_update('coregrounds_players')->fields(array(
+        'coins' => $account->coins + 1000,
+      ))->condition('uid', $account->uid)->execute();
+    }
+    // Delete unlocks
+    db_delete('coregrounds_unlocks')->condition('unlid', $id)->execute();
+  }
+}
+
+/**
+ * Add teams to old matches
+ */
+function coregrounds_update_7032() {
+  db_query("UPDATE coregrounds_matches_players SET team = player + 1");
+  db_query("UPDATE coregrounds_matches SET won = won + 1");
+}
+
+/**
+ * Add bot stats to season and initialize bot level
+ */
+function coregrounds_update_7033(&$sandbox) {
+
+  if (!isset($sandbox['total'])) {
+    $query = "SELECT COUNT(*) FROM users WHERE uid > 0";
+    $sandbox['total'] = db_query($query)->fetchField();
+    $sandbox['processed'] = 0;
+    $sandbox['last'] = 0;
+  }
+
+  // We handle 5 users at a time
+  $query = "SELECT * FROM users WHERE uid > :uid ORDER BY uid ASC LIMIT 5";
+  foreach (db_query($query, array(':uid' => $sandbox['last'])) as $account) {
+    $q = "SELECT COUNT(1) FROM coregrounds_matches m
+          JOIN coregrounds_matches_players p ON m.mid = p.mid AND p.uid = :uid
+          WHERE m.match_type = 0";
+    $total = db_query($q, [':uid' => $account->uid])->fetchField();
+    $q = "SELECT COUNT(1) FROM coregrounds_matches m
+          JOIN coregrounds_matches_players p ON m.mid = p.mid AND p.uid = :uid
+          WHERE m.match_type = 0 AND m.won = 1";
+    $won = db_query($q, [':uid' => $account->uid])->fetchField();
+
+    if ($total) {
+      $winrate = 0;
+      if ($won) $winrate = $won / $total;
+      // Insert bot stats into season
+      db_merge('coregrounds_seasons')->key([
+        'season' => '2015-1',
+        'uid' => $account->uid,
+      ])->fields([
+        'bot_wins' => $won,
+        'bot_games' => $total,
+        'bot_winrate' => $winrate,
+      ])->execute();
+
+      // Add botlevel to account
+      db_update('coregrounds_players')->fields(array(
+        'solo_progress' => $won > 70 ? 70 : $won,
+      ))->condition('uid', $account->uid)->execute();
+    }
+
+    // We continue in the loop anyway so we don't get stuck
+    $sandbox['processed']++;
+    $sandbox['last'] = $account->uid;
+  }
+
+  $sandbox['#finished'] = $sandbox['processed'] / $sandbox['total'];
+}
+
+/**
+ * Forced refund
+ */
+function coregrounds_update_7034() {
+  foreach ([2404] as $id) {
+    // Issue refund
+    $q = "SELECT u.uid, p.coins FROM coregrounds_unlocks u
+          JOIN coregrounds_players p ON u.uid = p.uid
+          WHERE u.unlid = :id";
+    foreach (db_query($q, [':id' => $id]) as $account) {
+      db_update('coregrounds_players')->fields(array(
+        'coins' => $account->coins + 1000,
+      ))->condition('uid', $account->uid)->execute();
+    }
+    // Delete unlocks
+    db_delete('coregrounds_unlocks')->condition('unlid', $id)->execute();
+  }
+}
+
+/**
+ * Add field for region
+ */
+function coregrounds_update_7035() {
+  db_add_field('coregrounds_players', 'region', [
+    'type' => 'varchar',
+    'length' => 16,
+    'not null' => TRUE,
+    'default' => ''
+  ]);
+}
+
+/**
+ * Add field for crossregion setting
+ */
+function coregrounds_update_7036() {
+  db_add_field('coregrounds_players', 'crossregion', [
+    'type' => 'int',
+    'unsigned' => TRUE,
+    'size' => 'tiny',
+    'not null' => TRUE,
+    'default' => 0
+  ]);
+}
+
+/**
+ * Give users 3000 credits to compensate for new free mods
+ */
+function coregrounds_update_7037(&$sandbox) {
+  if (!isset($sandbox['total'])) {
+    $query = "SELECT COUNT(*) FROM users WHERE uid > 0";
+    $sandbox['total'] = db_query($query)->fetchField();
+    $sandbox['processed'] = 0;
+    $sandbox['last'] = 0;
+  }
+  $q = "SELECT uid FROM users WHERE uid > :uid ORDER BY uid ASC LIMIT 10";
+  foreach (db_query($q, array(':uid' => $sandbox['last']))->fetchCol() as $uid) {
+    $query = db_update('coregrounds_players');
+    $query->expression('coins', 'coins + :coins', array(':coins' => 3000));
+    $query->expression('coins_earned', 'coins_earned + :earned', array(':earned' => 3000));
+    $query->condition('uid', $uid)->execute();
+    // We continue in the loop anyway so we don't get stuck
+    $sandbox['processed']++;
+    $sandbox['last'] = $uid;
+  }
+  $sandbox['#finished'] = $sandbox['processed'] / $sandbox['total'];
+}
+
+/**
+ * Give users 4500 credits to compensate for new units, also emotes
+ */
+function coregrounds_update_7038(&$sandbox) {
+  if (!isset($sandbox['total'])) {
+    $query = "SELECT COUNT(*) FROM users WHERE uid > 0";
+    $sandbox['total'] = db_query($query)->fetchField();
+    $sandbox['processed'] = 0;
+    $sandbox['last'] = 0;
+  }
+  $q = "SELECT uid FROM users WHERE uid > :uid ORDER BY uid ASC LIMIT 10";
+  foreach (db_query($q, array(':uid' => $sandbox['last']))->fetchCol() as $uid) {
+    // Add "good game" emote for everyone
+    db_merge('coregrounds_unlocks')->key([
+      'uid' => $uid,
+      'unlid' => 2201,
+    ])->fields([
+      'uid' => $uid,
+      'unlid' => 2201,
+    ])->execute();
+    // Add "glhf" emote for everyone
+    db_merge('coregrounds_unlocks')->key([
+      'uid' => $uid,
+      'unlid' => 2218,
+    ])->fields([
+      'uid' => $uid,
+      'unlid' => 2218,
+    ])->execute();
+    $query = db_update('coregrounds_players');
+    $query->expression('coins', 'coins + :coins', array(':coins' => 4500));
+    $query->expression('coins_earned', 'coins_earned + :earned', array(':earned' => 4500));
+    $query->condition('uid', $uid)->execute();
+    // We continue in the loop anyway so we don't get stuck
+    $sandbox['processed']++;
+    $sandbox['last'] = $uid;
+  }
+  $sandbox['#finished'] = $sandbox['processed'] / $sandbox['total'];
+}
+
+/**
+ * Rework coupons table
+ */
+function coregrounds_update_7039(&$sandbox) {
+  // Delete unused entries
+  db_delete('coregrounds_coupons')->condition('used_by', 0)->execute();
+  // Drop old fields
+  db_drop_field('coregrounds_coupons', 'flat_coins');
+  db_drop_field('coregrounds_coupons', 'skin_tokens');
+  db_drop_field('coregrounds_coupons', 'boost_wins');
+  db_drop_field('coregrounds_coupons', 'boost_until');
+  db_drop_field('coregrounds_coupons', 'permaboost');
+  // Add new cordium field
+  db_add_field('coregrounds_coupons', 'cordium', array(
+    'type' => 'int',
+    'not null' => TRUE,
+    'default' => 0,
+    'unsigned' => TRUE,
+  ));
+}
+
+/**
+ * Add bonus cordium to purchases
+ */
+function coregrounds_update_7040(&$sandbox) {
+  // Triple cordium purchases
+  $q = "SELECT uid, bundle FROM coregrounds_transactions WHERE status = :status";
+  foreach (db_query($q, [':status' => 'finalized']) as $transaction) {
+    $bundle = configQuery('purchases', 'id', $transaction->bundle);
+    $amount = $bundle['currency'] * 2;
+    $query = db_update('coregrounds_players');
+    $query->expression('pc_current', 'pc_current + :add', array(':add' => $amount));
+    $query->expression('pc_bought', 'pc_bought + :add', array(':add' => $amount));
+    $query->condition('uid', $transaction->uid)->execute();
+  }
+}

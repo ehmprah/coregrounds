@@ -1,0 +1,76 @@
+h3.changes {
+  border-bottom: 1px solid;
+  padding-bottom: .5em;
+  margin-bottom: .75em;
+}
+
+ul.changes {
+  padding:0;
+  li {
+    list-style-type: none;
+    margin: 0 0 0.75em 0;
+    position: relative;
+    line-height: 1.5em;
+  }
+  li.nerfed:before,
+  li.removed:before,
+  li.changed:before,
+  li.buffed:before,
+  li.fixed:before,
+  li.added:before {
+    border-radius: 2px;
+    font-size: 16px;
+    width: 100px;
+    text-align: center;
+    display: inline-block;
+    margin-right: .5em;
+    line-height: 24px;
+    opacity: 0.8;
+  }
+  li.removed:before {
+    content: 'REMOVED';
+    background: darkred;
+  }
+  li.nerfed:before {
+    content: 'NERFED';
+    background: orangered;
+  }
+  li.changed:before {
+    content: 'CHANGED';
+    background: darkslateblue;
+  }
+  li.buffed:before {
+    content: 'BUFFED';
+    background: darkgreen;
+  }
+  li.added:before {
+    content: 'ADDED';
+    background: darkmagenta;
+  }
+  li.fixed:before {
+    content: 'FIXED';
+    background: darkcyan;
+  }
+}
+
+span.notes {
+  font-style: italic;
+  color: #898989;
+}
+
+span.name {
+  text-transform: uppercase;
+  border-radius: 2px;
+  margin-right: .5em;
+  font-size: 16px;
+  min-width: 100px;
+  display: inline-block;
+  background: #333;
+  text-align: center;
+}
+
+button.previous {
+  display: block;
+  width: 100%;
+  margin: 2em 0;
+}

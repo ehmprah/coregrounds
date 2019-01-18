@@ -1,0 +1,69 @@
+.game-guide-menu {
+  margin: 1em 0 0;
+  button {
+    padding: 1em 0;
+  }
+}
+
+.game-guide-landing {
+  margin: 0 0 2em 0;
+  button {
+    padding: 2em 0;
+  }
+}
+
+.game-guide-details {
+  label {
+    text-transform: uppercase;
+  }
+  sprite.main {
+    max-width: 256px;
+    display: block;
+    float: right;
+    width: 100%;
+  }
+
+  sprite.tiny {
+    display: inline-block;
+  }
+
+  .counters {
+    float: right;
+    clear: right;
+    width: 256px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  table {
+    margin-top: 2em;
+    text-transform: uppercase;
+    tr td {
+      padding: 0
+    }
+    td:first-child {
+      color: #888;
+      min-width: 250px;
+    }
+  }
+}
+
+ul.tips li {
+  text-align: center;
+  display: block;
+  padding: 0 1em;
+}
+
+button.close {
+  position: fixed;
+  right: 15px;
+  top: 10px;
+  background: none;
+  padding: 0;
+  width: 40px;
+  svg {
+    width: 100%;
+    height: auto;
+    fill: #dbdbdb;
+  }
+}

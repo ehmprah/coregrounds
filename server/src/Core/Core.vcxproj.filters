@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="protobuf">
+      <UniqueIdentifier>{31094ea6-71bb-48cc-8611-e060f2c891ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GeneratedFiles">
+      <UniqueIdentifier>{a1c84e4f-8443-4983-a22b-b590ace79ac1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Core\CastableHandle.hpp" />
+    <ClInclude Include="Core\UnitDefines.hpp" />
+    <ClInclude Include="Core\UnitFwd.hpp" />
+    <ClInclude Include="Core\SharedDefines.hpp" />
+    <ClInclude Include="Core\CastableSnapshot.hpp" />
+    <ClInclude Include="Core\HelperFunctions.hpp" />
+    <ClInclude Include="Core\StatContainer.hpp" />
+    <ClInclude Include="Core\StatModifier.hpp" />
+    <ClInclude Include="Core\DeviceFwd.hpp" />
+    <ClInclude Include="Core\EntityFwd.hpp" />
+    <ClInclude Include="Core\SLInclude.hpp" />
+    <ClInclude Include="Core\Random.hpp" />
+    <ClInclude Include="Core\Timer.hpp" />
+    <ClInclude Include="Core\DeviceDefines.hpp" />
+    <ClInclude Include="Core\SpellFwd.hpp" />
+    <ClInclude Include="Core\MapFwd.hpp" />
+    <ClInclude Include="Core\AI.hpp" />
+    <ClInclude Include="Core\log.hpp" />
+    <ClInclude Include="Core\BoostInclude.hpp" />
+    <ClInclude Include="Core\StdInclude.hpp" />
+    <ClInclude Include="Core\Shape.hpp" />
+    <ClInclude Include="Core\Json.hpp" />
+    <ClInclude Include="Core\protobuf\Includes.hpp">
+      <Filter>protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\protobuf\InputMessages.pb.h">
+      <Filter>GeneratedFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\protobuf\OutputMessages.pb.h">
+      <Filter>GeneratedFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\ParticipantData.hpp" />
+    <ClInclude Include="Core\TargetPreference.hpp" />
+    <ClInclude Include="Core\PhaseDef.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Core\HelperFunctions.cpp" />
+    <ClCompile Include="Core\log.cpp" />
+    <ClCompile Include="Core\Json.cpp" />
+    <ClCompile Include="GeneratedFiles\protobuf\InputMessages.pb.cc">
+      <Filter>GeneratedFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\protobuf\OutputMessages.pb.cc">
+      <Filter>GeneratedFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\ParticipantData.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Core\protobuf\InputMessages.proto">
+      <Filter>protobuf</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Core\protobuf\OutputMessages.proto">
+      <Filter>protobuf</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>

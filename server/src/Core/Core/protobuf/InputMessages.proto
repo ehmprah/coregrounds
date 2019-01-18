@@ -1,0 +1,113 @@
+syntax = "proto3";
+
+package protobuf.in;
+
+message Login
+{
+    string token = 1;
+}
+
+message Match
+{
+    message PlayEmote
+    {
+        uint32 id = 1;
+    }
+
+    message Pick
+    {
+        enum Target
+        {
+            factory = 0;
+            ability = 1;
+        }
+        message Pick
+        {
+            uint32 id = 1;
+            Target target = 2;
+        }
+        repeated Pick picks = 1;
+
+        message Ban
+        {
+            uint32 id = 1;
+            Target target = 2;
+        }
+        repeated Ban bans = 2;
+
+        message ModPageSelection
+        {
+            uint32 pid = 1;
+        }
+        repeated ModPageSelection modPageSelections = 3;
+
+        repeated PlayEmote emotePlays = 4;
+    }
+
+    message Game
+    {
+        message ActivateFactory
+        {
+            uint32 index = 1;
+            uint32 position = 2; // x = bit 0...15; y = bit 16...31; tile = 1000
+        }
+        repeated ActivateFactory factoryActivations = 1;
+
+        message UpgradeFactory
+        {
+            uint32 index = 1;
+            uint32 upgrade = 2;
+        }
+        repeated UpgradeFactory factoryUpgrades = 2;
+
+        message ActivateAbility
+        {
+            uint32 index = 1;
+            uint32 position = 2; // x = bit 0...15; y = bit 16...31; tile = 1000
+        }
+        repeated ActivateAbility abilityActivations = 3;
+
+        message ChangeTargetPreference
+        {
+            uint32 index = 1;
+            uint32 targetPreference = 2;// bit 0...14 = unit type (flag values: core = 1; wall = 2; tower = 4; minion = 8); bit 15...30 = mode (low = 0; high = 1; first = 2; random = 3)
+        }
+        repeated ChangeTargetPreference targetPreferenceChanges = 4;
+
+        message ChangeGlobalTarget
+        {
+            uint32 guid = 1;
+        }
+        repeated ChangeGlobalTarget globalTargetChanges = 5;
+
+        repeated PlayEmote emotePlays = 6;
+
+        bool surrender = 7;
+    }
+
+    message Finalize
+    {
+        repeated PlayEmote emotePlays = 1;
+    }
+
+    oneof type
+    {
+        Pick pick = 1;
+        Game game = 2;
+        Finalize finalize = 3;
+    }
+}
+
+message Ping
+{
+}
+
+message Message
+{
+    oneof event
+    {
+	    Login login = 1;
+	    Match match = 3;
+        Ping ping = 4;
+    }
+}

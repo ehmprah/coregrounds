@@ -1,0 +1,61 @@
+@mixin rangeThumb {
+  border: 1px solid #121212;
+  width: 10px;
+  height: 30px;
+  background: #489D12;
+  cursor: pointer;
+  margin-top: -5px;
+}
+
+@mixin rangeTrack {
+  width: 100%;
+  height: 20px;
+  cursor: pointer;
+  background: #2A2A2A;
+}
+
+input[type="range"] {
+  margin:0 0 10px 0;
+  padding:10px 0;
+  background:transparent;
+  width:100%;
+  -webkit-appearance: none;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    @include rangeThumb;
+  }
+
+  &::-moz-range-thumb {
+    @include rangeThumb;
+  }
+
+  &::-ms-thumb {
+    @include rangeThumb;
+  }
+
+  &::-webkit-slider-runnable-track {
+    @include rangeTrack;
+  }
+
+  &::-moz-range-track {
+    @include rangeTrack;
+  }
+
+  &::-ms-track {
+    @include rangeTrack;
+  }
+
+  &:focus {
+    background: none;
+    outline: none;
+  }
+
+  &::-ms-track {
+    width: 100%;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+}

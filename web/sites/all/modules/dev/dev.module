@@ -1,0 +1,54 @@
+<?php
+/**
+ * Implementation of hook_menu().
+ */
+function dev_menu() {
+
+  $items['cc'] = array(
+    'title' => '',
+    'page callback' => 'dev_cc',
+    'access callback' => 'user_access',
+    'access arguments' => array('access dev'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  return $items;
+}
+
+/**
+ * Implementation of hook_permission().
+ */
+function dev_permission() {
+  return array(
+    'access dev' => array(
+      'title' => t('Access DevTools'), 
+    ),
+  );
+}
+
+/**
+ * Page callback clearing all caches
+ */
+function dev_cc() {
+  drupal_flush_all_caches();
+  drupal_set_message('All caches cleared.');
+  drupal_goto(isset($_GET['destination']) ? $_GET['destination'] : '');
+}
+
+/**
+ * Function printing variable contents
+ */
+function dvp($var) {
+  return drupal_set_message('<pre>'.print_r($var,TRUE).'</pre>');
+}
+
+/**
+ * Implementation of hook_form_alter().
+ */
+function dev_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'system_modules') {
+    foreach (element_children($form['modules']) as $package) {
+      $form['modules'][$package]['#collapsed'] = TRUE;
+    }
+  }
+}

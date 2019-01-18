@@ -1,0 +1,117 @@
+/* Browser Resets
+*********************************/
+.flex-container a:active,
+.flexslider a:active,
+.flex-container a:focus,
+.flexslider a:focus  {outline: none;}
+.slides,
+.flex-control-nav,
+.flex-direction-nav {margin: 0; padding: 0; list-style: none;}
+
+/* FlexSlider Necessary Styles
+*********************************/
+.flexslider {margin: 0; padding: 0;}
+.slides > .slide {display: none; -webkit-backface-visibility: hidden;} /* Hide the slides before the JS is loaded. Avoids image jumping */
+.slides img {width: 100%; display: block;}
+.flex-pauseplay span {text-transform: capitalize;}
+
+/* Clearfix for the .slides element */
+.slides:after {content: "\0020"; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;}
+html[xmlns] .slides {display: block;}
+* html .slides {height: 1%;}
+
+/* No JavaScript Fallback */
+/* If you are not using another script, such as Modernizr, make sure you
+ * include js that eliminates this class on page load */
+.no-js .slides > .slide {display: block;}
+
+a.flex-prev,
+a.flex-next {
+  background-repeat:no-repeat;
+  background-color:rgba(0,0,0,0.5);
+  background-position:center center;
+  background-size:16px;
+  width:60px;
+  height:60px;
+  margin-top:-30px;
+  text-indent:-9999px;
+  display:block;
+}
+
+a.flex-prev { background-image: url("../images/left.png"); }
+a.flex-next { background-image: url("../images/right.png"); }
+
+.slider {
+  position:relative;
+  margin-bottom:10px;
+  .slide {
+    position:relative;
+    img {
+      display:block;
+    }
+    .caption {
+      padding:16px;
+      text-align:center;
+      background:rgba(0,0,0,0.5);
+    }
+  }
+  ul.flex-direction-nav {
+    li {
+      list-style-type: none;
+      a.flex-prev {
+        position:absolute;
+        left:0;
+        top:50%;
+      }
+      a.flex-next {
+        position:absolute;
+        right:0;
+        top:50%;
+      }
+    }
+  }
+  ol.flex-control-nav {
+    width: 100%;
+    position: absolute;
+    bottom: -40px;
+    text-align: center;
+    list-style-type: none;
+    li {
+      display:inline;
+      a {
+        width: 11px;
+        height: 11px;
+        display: inline-block;
+        margin:0 1px;
+        background: rgba(0, 0, 0, 0.5);
+        border:2px solid #000;
+        cursor: pointer;
+        text-indent: -9999px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        border-radius: 20px;
+      }
+    }
+    li a.flex-active {
+      background:#fff;
+    }
+  }
+}
+
+@media (min-width: 960px) {
+  .slider {
+    border:2px solid rgba(0,0,0,0.5);
+  }
+  .caption {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    z-index:1;
+    font-size:24px;
+  }
+}
+
+.slide a .caption {
+  color:#fff !important;
+}
