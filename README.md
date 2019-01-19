@@ -9,7 +9,7 @@ proof-of-concept version of Coregrounds for half a year and released it by the e
 Together with a small community the core gameplay was evolved and battle-tested before Mario
 teamed up with Dominic "DNKpp" Koepke to level up the technology behind Coregrounds. This current version was released on Steam in April 2018. Due tue performance issues, the mobile versions weren't released, a rework of the client graphics was started but not completed. Ultimately, the devs weren't able to support this project the way it deserved, but maybe the community will!
 
-# License
+# License (Source Code)
 
 Copyright (C) 2019 Mario Kaiser (client, lobby, web) & Dominic Koepke (server)
 
@@ -26,6 +26,16 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 
+# License (Assets)
+
+Game Art Copyright (C) 2019 John William Waters, Mario Kaiser
+
+SFX Copyright (C) 2019 Lyrebird Game + Audio GmbH
+
+Music Copyright (C) 2019 Michael Champion
+
+The game assets are licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
+
 # Community
 
 [http://discord.gg/coregrounds](http://discord.gg/coregrounds)
@@ -34,10 +44,12 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 # Contact
 
-Get in touch at info@coregrounds.com
+Get in touch at [info@coregrounds.com](mailto:info@coregrounds.com)
 
 # Coregrounds uses
 
 [Exo 2](http://www.ndiscovered.com/) by Natanael Gama
+
 [Material Icons](https://material.io/icons/) by Google
+
 [Subtle Patterns](https://www.toptal.com/designers/subtlepatterns) by TopTal
